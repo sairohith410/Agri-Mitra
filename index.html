@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#1B3A2D">
-<meta name="description" content="AgriMitra — AI-powered smart farming advisor for Indian farmers. Crop disease, fertilizer, irrigation, market and subsidy guidance.">
+<meta name="description" content="AgriMitra — AI-powered smart farming advisor for Indian farmers.">
 <title>AgriMitra — AI Smart Farming Advisor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +15,9 @@
    DESIGN TOKENS — CSS VARIABLES
 ═══════════════════════════════════════ */
 :root {
-  /* ── Core palette — from AgriMitra reference ── */
   --forest:        #1B3A2D;
   --forest-mid:    #2D5A40;
-  --forest-light:  #2D5A40;   /* same as mid — richer, deeper green */
+  --forest-light:  #2D5A40;
   --leaf:          #4A8C5C;
   --leaf-light:    #6AB07A;
   --gold:          #C8962A;
@@ -26,7 +25,7 @@
   --gold-pale:     #FFF3D6;
   --earth:         #8B5E3C;
   --earth-light:   #B07D52;
-  --sky:           #7AADCF;   /* cool-blue accent from reference */
+  --sky:           #7AADCF;
   --cream:         #F7F2EA;
   --cream-dark:    #EDE5D4;
   --sand:          #D4C5A9;
@@ -36,8 +35,7 @@
   --white:         #FFFFFF;
   --error:         #C0392B;
   --success:       #27AE60;
-
-  --card-bg:       rgba(255,255,255,0.82);  /* slightly more opaque — cleaner cards */
+  --card-bg:       rgba(255,255,255,0.82);
   --card-border:   rgba(27,58,45,0.08);
   --shadow-sm:     0 2px 8px  rgba(27,58,45,0.08);
   --shadow-md:     0 8px 32px rgba(27,58,45,0.12);
@@ -48,19 +46,13 @@
   --radius-lg:     24px;
   --transition:    all 0.32s cubic-bezier(0.4,0,0.2,1);
   --transition-slow: all 0.45s cubic-bezier(0.4,0,0.2,1);
-
-  /* Fluid spacing scale */
   --space-xs:  clamp(4px,  1vw,  8px);
   --space-sm:  clamp(8px,  2vw,  12px);
   --space-md:  clamp(12px, 2.5vw, 20px);
   --space-lg:  clamp(20px, 4vw,  40px);
   --space-xl:  clamp(32px, 6vw,  64px);
   --space-2xl: clamp(48px, 8vw,  96px);
-
-  /* Fluid page padding */
   --page-pad:  clamp(16px, 5vw, 80px);
-
-  /* Nav height (changes at breakpoints) */
   --nav-h: 62px;
 }
 
@@ -69,27 +61,21 @@
 ═══════════════════════════════════════ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--cream);
   color: var(--text-dark);
   overflow-x: hidden;
-  min-height: 100svh; /* svh for mobile browser chrome */
+  min-height: 100svh;
   -webkit-font-smoothing: antialiased;
 }
-
 img { max-width: 100%; height: auto; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 input, select, textarea { font-family: inherit; }
-
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--cream-dark); }
 ::-webkit-scrollbar-thumb { background: var(--leaf); border-radius: 3px; }
 
-/* ═══════════════════════════════════════
-   GLOBAL BACKGROUND AMBIANCE
-═══════════════════════════════════════ */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -100,7 +86,7 @@ body::before {
 }
 
 /* ═══════════════════════════════════════
-   TYPOGRAPHY — READABLE FIXED SCALE
+   TYPOGRAPHY
 ═══════════════════════════════════════ */
 .t-hero  { font-size: clamp(2.4rem, 5vw, 4.2rem); }
 .t-h1    { font-size: clamp(1.8rem, 4vw, 3rem); }
@@ -109,7 +95,6 @@ body::before {
 .t-body  { font-size: 0.95rem; }
 .t-sm    { font-size: 0.85rem; }
 .t-xs    { font-size: 0.78rem; }
-
 .serif { font-family: 'Playfair Display', Georgia, serif; }
 .bold  { font-weight: 700; }
 .mid   { color: var(--text-mid); }
@@ -130,7 +115,6 @@ body::before {
   transition: var(--transition);
   gap: var(--space-sm);
 }
-
 .nav-logo {
   display: flex; align-items: center; gap: 9px;
   text-decoration: none; cursor: pointer; flex-shrink: 0;
@@ -145,21 +129,16 @@ body::before {
   font-weight: 700; font-size: clamp(1.1rem, 2.5vw, 1.45rem);
   color: var(--forest); white-space: nowrap;
 }
-
-/* Desktop nav links */
 .nav-desktop-links {
   display: flex; align-items: center; gap: 2px;
-  flex: 1; justify-content: center;
-  overflow: hidden;
+  flex: 1; justify-content: center; overflow: hidden;
 }
 .nav-link {
   padding: 6px 11px; border-radius: var(--radius-xs);
   font-size: 0.8rem; font-weight: 500; color: var(--text-mid);
   transition: var(--transition); white-space: nowrap;
 }
-.nav-link:hover, .nav-link.active {
-  background: var(--forest); color: var(--white);
-}
+.nav-link:hover, .nav-link.active { background: var(--forest); color: var(--white); }
 .nav-cta {
   padding: 8px 16px; border-radius: var(--radius-xs);
   background: var(--gold); color: var(--white);
@@ -167,8 +146,6 @@ body::before {
   transition: var(--transition); white-space: nowrap;
 }
 .nav-cta:hover { background: var(--earth); transform: translateY(-1px); }
-
-/* Hamburger */
 .hamburger {
   display: none; flex-direction: column; justify-content: center;
   gap: 5px; width: 38px; height: 38px; padding: 6px;
@@ -182,7 +159,6 @@ body::before {
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile drawer */
 #mobile-nav {
   position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 199;
   background: rgba(247,242,234,0.97);
@@ -190,8 +166,7 @@ body::before {
   -webkit-backdrop-filter: blur(20px);
   padding: 16px var(--page-pad) 24px;
   border-bottom: 1px solid var(--card-border);
-  transform: translateY(-110%);
-  opacity: 0; transition: var(--transition-slow);
+  transform: translateY(-110%); opacity: 0; transition: var(--transition-slow);
   display: flex; flex-direction: column; gap: 4px;
   box-shadow: var(--shadow-md);
 }
@@ -201,41 +176,25 @@ body::before {
   font-size: 0.95rem; font-weight: 500; color: var(--text-dark);
   text-align: left; transition: var(--transition);
 }
-.mobile-nav-link:hover, .mobile-nav-link.active {
-  background: var(--forest); color: var(--white);
-}
-.mobile-nav-divider {
-  height: 1px; background: var(--card-border); margin: 6px 0;
-}
+.mobile-nav-link:hover, .mobile-nav-link.active { background: var(--forest); color: var(--white); }
+.mobile-nav-divider { height: 1px; background: var(--card-border); margin: 6px 0; }
 
 /* ═══════════════════════════════════════
    PAGES
 ═══════════════════════════════════════ */
-.page {
-  display: none;
-  min-height: 100svh;
-  padding-top: var(--nav-h);
-  position: relative; z-index: 1;
-}
+.page { display: none; min-height: 100svh; padding-top: var(--nav-h); position: relative; z-index: 1; }
 .page.active { display: block; animation: pageIn 0.4s ease both; }
-
-@keyframes pageIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes pageIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ═══════════════════════════════════════
-   HOME — HERO
+   HOME HERO
 ═══════════════════════════════════════ */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: var(--space-xl);
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: var(--space-xl);
   padding: var(--space-xl) var(--page-pad);
   min-height: calc(100svh - var(--nav-h));
 }
-
 .hero-badge {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 5px 12px; border-radius: 20px;
@@ -243,31 +202,23 @@ body::before {
   font-size: 0.78rem; font-weight: 600; margin-bottom: 18px;
 }
 .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
-@keyframes pulse {
-  0%,100% { opacity: 1; } 50% { opacity: 0.3; }
-}
-
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   font-weight: 900; line-height: 1.08; color: var(--forest);
-  margin-bottom: var(--space-md);
-  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md); letter-spacing: -0.02em;
 }
 .hero-title span { color: var(--gold); }
 .hero-title em {
   font-style: normal;
   background: linear-gradient(135deg, var(--leaf), var(--forest));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-
 .hero-desc {
-  font-size: 1.05rem;
-  line-height: 1.72; color: var(--text-mid);
+  font-size: 1.05rem; line-height: 1.72; color: var(--text-mid);
   margin-bottom: var(--space-lg); max-width: 500px;
 }
-
 .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -278,32 +229,23 @@ body::before {
 }
 .btn-primary { background: var(--forest); color: var(--white); }
 .btn-primary:hover { background: var(--forest-mid); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.btn-outline {
-  background: transparent; color: var(--forest);
-  border: 2px solid var(--forest);
-}
+.btn-outline { background: transparent; color: var(--forest); border: 2px solid var(--forest); }
 .btn-outline:hover { background: var(--forest); color: var(--white); }
 .btn-gold { background: var(--gold); color: var(--white); }
 .btn-gold:hover { background: var(--earth); transform: translateY(-2px); box-shadow: var(--shadow-md); }
-
-/* Hero cards grid */
-.hero-cards {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-}
+.hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .hero-card {
   background: var(--card-bg); border-radius: var(--radius);
   padding: clamp(16px,3vw,24px);
   border: 1.5px solid var(--card-border); cursor: pointer;
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
+  transition: var(--transition); backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
 }
 .hero-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--leaf); }
 .hero-card.span-2 { grid-column: span 2; display: flex; align-items: center; gap: 16px; }
 .hero-card-icon { font-size: clamp(1.4rem,3vw,2rem); flex-shrink: 0; }
 .hero-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+  font-family: 'Playfair Display', serif; font-size: 1rem;
   font-weight: 700; color: var(--forest); margin-bottom: 4px;
 }
 .hero-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.4; }
@@ -314,30 +256,23 @@ body::before {
 .stats-bar {
   background: var(--forest);
   padding: clamp(20px,4vw,32px) var(--page-pad);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: clamp(16px,3vw,32px);
-  text-align: center;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: clamp(16px,3vw,32px); text-align: center;
 }
 .stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem,3vw,2rem);
-  font-weight: 700; color: var(--gold-light);
-  line-height: 1.1;
+  font-size: clamp(1.4rem,3vw,2rem); font-weight: 700; color: var(--gold-light); line-height: 1.1;
 }
 .stat-label { font-size: clamp(0.68rem,1vw,0.78rem); color: rgba(255,255,255,0.55); margin-top: 4px; }
 
 /* ═══════════════════════════════════════
    SECTION WRAPPER
 ═══════════════════════════════════════ */
-.section {
-  padding: var(--space-2xl) var(--page-pad);
-}
+.section { padding: var(--space-2xl) var(--page-pad); }
 .section-header { margin-bottom: var(--space-lg); }
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem,3.5vw,2.2rem);
-  font-weight: 700; color: var(--forest); margin-bottom: 8px;
+  font-size: clamp(1.6rem,3.5vw,2.2rem); font-weight: 700; color: var(--forest); margin-bottom: 8px;
 }
 .section-sub { font-size: 1rem; color: var(--text-mid); }
 
@@ -351,18 +286,16 @@ body::before {
 }
 .feature-card {
   background: var(--card-bg); border-radius: var(--radius); cursor: pointer;
-  padding: clamp(20px,3vw,28px);
-  border: 1.5px solid var(--card-border);
+  padding: clamp(20px,3vw,28px); border: 1.5px solid var(--card-border);
   transition: var(--transition); position: relative; overflow: hidden;
   backdrop-filter: blur(10px);
 }
 .feature-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--leaf), var(--gold));
   transform: scaleX(0); transform-origin: left; transition: var(--transition);
 }
-.feature-card:hover::after  { transform: scaleX(1); }
+.feature-card:hover::after { transform: scaleX(1); }
 .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .feature-icon {
   width: clamp(40px,6vw,52px); height: clamp(40px,6vw,52px);
@@ -371,20 +304,17 @@ body::before {
   font-size: clamp(1.2rem,2.5vw,1.5rem); margin-bottom: 14px;
 }
 .feature-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif; font-size: 1.1rem;
   font-weight: 700; color: var(--forest); margin-bottom: 7px;
 }
 .feature-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.55; }
 .feature-tag {
-  display: inline-block; margin-top: 12px;
-  padding: 4px 10px; border-radius: 20px;
-  background: var(--cream-dark); color: var(--leaf);
-  font-size: 0.72rem; font-weight: 600;
+  display: inline-block; margin-top: 12px; padding: 4px 10px; border-radius: 20px;
+  background: var(--cream-dark); color: var(--leaf); font-size: 0.72rem; font-weight: 600;
 }
 
 /* ═══════════════════════════════════════
-   MODULE HERO BANNER
+   MODULE BANNER
 ═══════════════════════════════════════ */
 .module-banner {
   background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 60%, var(--forest-light) 100%);
@@ -392,16 +322,13 @@ body::before {
   position: relative; overflow: hidden;
 }
 .module-banner::before {
-  content: '';
-  position: absolute; right: clamp(-80px,-10vw,-20px); top: -80px;
-  width: clamp(200px,35vw,380px); height: clamp(200px,35vw,380px);
-  border-radius: 50%;
+  content: ''; position: absolute; right: clamp(-80px,-10vw,-20px); top: -80px;
+  width: clamp(200px,35vw,380px); height: clamp(200px,35vw,380px); border-radius: 50%;
   background: radial-gradient(circle, rgba(200,150,42,0.14) 0%, transparent 70%);
   pointer-events: none;
 }
 .module-banner::after {
-  content: '';
-  position: absolute; left: -40px; bottom: -40px;
+  content: ''; position: absolute; left: -40px; bottom: -40px;
   width: 180px; height: 180px; border-radius: 50%;
   background: radial-gradient(circle, rgba(74,140,92,0.1) 0%, transparent 70%);
   pointer-events: none;
@@ -413,31 +340,19 @@ body::before {
 }
 .module-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem,4vw,2.6rem);
-  font-weight: 700; color: var(--white);
+  font-size: clamp(1.6rem,4vw,2.6rem); font-weight: 700; color: var(--white);
   margin-bottom: 10px; line-height: 1.15;
 }
-.module-desc {
-  color: rgba(255,255,255,0.7);
-  font-size: 1rem;
-  max-width: 580px; line-height: 1.65;
-}
+.module-desc { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 580px; line-height: 1.65; }
 
 /* ═══════════════════════════════════════
-   MODULE LAYOUT — FORM + SIDEBAR
+   MODULE LAYOUT
 ═══════════════════════════════════════ */
-.module-body {
-  padding: clamp(20px,4vw,40px) var(--page-pad);
-}
-
+.module-body { padding: clamp(20px,4vw,40px) var(--page-pad); }
 .module-layout {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: clamp(20px,3vw,32px);
-  align-items: start;
+  display: grid; grid-template-columns: 1fr 320px;
+  gap: clamp(20px,3vw,32px); align-items: start;
 }
-
-/* Tips sidebar */
 .sidebar-card {
   background: var(--card-bg); border-radius: var(--radius); padding: clamp(18px,3vw,26px);
   border: 1.5px solid var(--card-border); box-shadow: var(--shadow-sm);
@@ -446,12 +361,11 @@ body::before {
 .sidebar-card h4 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(0.9rem,1.8vw,1rem); font-weight: 700;
-  color: var(--forest); margin-bottom: 14px;
-  display: flex; align-items: center; gap: 7px;
+  color: var(--forest); margin-bottom: 14px; display: flex; align-items: center; gap: 7px;
 }
 .tip-item {
-  display: flex; gap: 9px;
-  padding: 10px 0; border-bottom: 1px solid rgba(27,58,45,0.06);
+  display: flex; gap: 9px; padding: 10px 0;
+  border-bottom: 1px solid rgba(27,58,45,0.06);
   font-size: 0.82rem; color: var(--text-mid); line-height: 1.4;
 }
 .tip-item:last-child { border-bottom: none; }
@@ -462,8 +376,7 @@ body::before {
 ═══════════════════════════════════════ */
 .form-card {
   background: var(--card-bg); border-radius: var(--radius);
-  padding: clamp(20px,4vw,36px);
-  border: 1.5px solid var(--card-border); box-shadow: var(--shadow-sm);
+  padding: clamp(20px,4vw,36px); border: 1.5px solid var(--card-border); box-shadow: var(--shadow-sm);
 }
 .form-title {
   font-family: 'Playfair Display', serif;
@@ -471,41 +384,33 @@ body::before {
   color: var(--forest); margin-bottom: clamp(16px,3vw,24px);
   display: flex; align-items: center; gap: 8px;
 }
-
 .form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: clamp(12px,2vw,18px);
-  margin-bottom: clamp(12px,2vw,18px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(12px,2vw,18px); margin-bottom: clamp(12px,2vw,18px);
 }
 .form-grid.full { grid-template-columns: 1fr; }
-
 .form-group { display: flex; flex-direction: column; gap: 5px; }
 .form-label {
-  font-size: 0.82rem; font-weight: 600;
-  color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.05em;
+  font-size: 0.82rem; font-weight: 600; color: var(--text-mid);
+  text-transform: uppercase; letter-spacing: 0.05em;
 }
 .form-input, .form-select, .form-textarea {
-  padding: 11px 14px;
-  border-radius: var(--radius-sm);
+  padding: 11px 14px; border-radius: var(--radius-sm);
   border: 1.5px solid rgba(27,58,45,0.15);
   background: var(--cream); color: var(--text-dark);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  transition: var(--transition); outline: none;
-  width: 100%;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  transition: var(--transition); outline: none; width: 100%;
 }
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--leaf); background: var(--white);
   box-shadow: 0 0 0 3px rgba(74,140,92,0.1);
 }
-.form-select { cursor: pointer; appearance: none;
+.form-select {
+  cursor: pointer; appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A5E52' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 12px center;
-  padding-right: 34px;
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px;
 }
 .form-textarea { resize: vertical; min-height: clamp(70px,10vw,100px); }
-
 .submit-btn {
   width: 100%; padding: clamp(12px,2vw,15px);
   background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
@@ -516,8 +421,7 @@ body::before {
   position: relative; overflow: hidden;
 }
 .submit-btn::after {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.08) 100%);
   opacity: 0; transition: var(--transition);
 }
@@ -542,17 +446,10 @@ body::before {
 ═══════════════════════════════════════ */
 .skeleton {
   background: linear-gradient(90deg,
-    var(--cream-dark) 25%,
-    rgba(237,229,212,0.6) 50%,
-    var(--cream-dark) 75%);
-  background-size: 400% 100%;
-  animation: shimmer 1.4s infinite;
-  border-radius: 6px;
+    var(--cream-dark) 25%, rgba(237,229,212,0.6) 50%, var(--cream-dark) 75%);
+  background-size: 400% 100%; animation: shimmer 1.4s infinite; border-radius: 6px;
 }
-@keyframes shimmer {
-  0%   { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
 .skeleton-line { height: 14px; margin-bottom: 10px; }
 .skeleton-line:last-child { width: 65%; margin-bottom: 0; }
 .skeleton-block { height: 80px; margin-bottom: 12px; }
@@ -562,84 +459,106 @@ body::before {
 ═══════════════════════════════════════ */
 .result-card {
   background: var(--card-bg); border-radius: var(--radius);
-  padding: clamp(20px,3vw,30px);
-  border: 1.5px solid rgba(74,140,92,0.18);
+  padding: clamp(20px,3vw,30px); border: 1.5px solid rgba(74,140,92,0.18);
   box-shadow: var(--shadow-md); margin-top: clamp(18px,3vw,28px);
-  position: relative; overflow: hidden;
-  display: none;
+  position: relative; overflow: hidden; display: none;
 }
 .result-card.visible { display: block; animation: pageIn 0.4s ease; }
 .result-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
   background: linear-gradient(90deg, var(--leaf), var(--gold), var(--leaf));
-  background-size: 200% 100%;
-  animation: gradientFlow 3s linear infinite;
+  background-size: 200% 100%; animation: gradientFlow 3s linear infinite;
 }
-@keyframes gradientFlow {
-  0%   { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
-}
-.result-header {
-  display: flex; align-items: flex-start; gap: 12px; margin-bottom: clamp(14px,2vw,20px);
-}
+@keyframes gradientFlow { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
+.result-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: clamp(14px,2vw,20px); }
 .result-icon {
   width: 40px; height: 40px; flex-shrink: 0;
   background: linear-gradient(135deg, var(--leaf), var(--forest));
-  border-radius: 11px; display: grid; place-items: center;
-  color: white; font-size: 1rem;
+  border-radius: 11px; display: grid; place-items: center; color: white; font-size: 1rem;
 }
 .result-header-text h3 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(0.95rem,2vw,1.1rem); font-weight: 700; color: var(--forest);
 }
 .result-timestamp { font-size: 0.72rem; color: var(--text-light); margin-top: 2px; }
-
 .result-body {
-  font-size: 0.92rem;
-  line-height: 1.75; color: var(--text-dark);
-  white-space: pre-wrap; word-break: break-word;
+  font-size: 0.92rem; line-height: 1.75; color: var(--text-dark);
+  word-break: break-word;
 }
-.result-body strong { color: var(--forest); }
 
-/* Loading skeleton inside result */
-.result-loading .result-body { display: none; }
-.result-skeleton { padding-top: 4px; }
+/* ═══════════════════════════════════════
+   AI OUTPUT FORMATTING — .res-* classes
+   Applied by formatResponse() in JS
+═══════════════════════════════════════ */
+.res-body { font-size: 0.92rem; line-height: 1.78; }
+.res-p { margin: 0 0 0.55rem; }
+.res-h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--forest);
+  margin: 1.1rem 0 0.35rem;
+}
+.res-h4 {
+  font-size: 0.94rem; font-weight: 700; color: var(--forest-mid);
+  margin: 0.9rem 0 0.3rem; padding-left: 0.7rem;
+  border-left: 3px solid var(--leaf);
+}
+.res-h5 { font-size: 0.88rem; font-weight: 600; color: var(--leaf); margin: 0.7rem 0 0.25rem; }
+.res-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.45em; height: 1.45em;
+  background: var(--leaf); color: #fff; border-radius: 50%;
+  font-size: 0.7rem; font-weight: 700; margin-right: 0.45em;
+  flex-shrink: 0; vertical-align: middle;
+}
+.res-ul { list-style: none; padding: 0; margin: 0.4rem 0 0.75rem; display: flex; flex-direction: column; gap: 0.28rem; }
+.res-ul li {
+  padding: 0.48rem 0.85rem 0.48rem 1.9rem;
+  background: rgba(74,140,92,0.06); border-radius: 7px;
+  position: relative; line-height: 1.55;
+}
+.res-ul li::before {
+  content: '▸'; color: var(--leaf);
+  position: absolute; left: 0.65rem; top: 0.5rem; font-size: 0.72rem;
+}
+.res-warn {
+  padding: 0.6rem 0.9rem; background: rgba(200,150,42,0.09);
+  border: 1px solid rgba(200,150,42,0.28); border-radius: 8px;
+  margin: 0.6rem 0; font-weight: 500; font-size: 0.88rem;
+}
+.res-ok {
+  padding: 0.6rem 0.9rem; background: rgba(39,174,96,0.07);
+  border: 1px solid rgba(39,174,96,0.22); border-radius: 8px;
+  margin: 0.6rem 0; font-size: 0.88rem;
+}
+.res-takeaway {
+  font-size: 0.94rem; font-weight: 700; color: var(--gold);
+  margin: 1rem 0 0.3rem; padding-left: 0.7rem;
+  border-left: 3px solid var(--gold);
+}
 
 /* ═══════════════════════════════════════
    REVIEWS
 ═══════════════════════════════════════ */
-.reviews-section {
-  background: var(--forest);
-  padding: var(--space-2xl) var(--page-pad);
-}
+.reviews-section { background: var(--forest); padding: var(--space-2xl) var(--page-pad); }
 .reviews-section .section-title { color: var(--white); }
 .reviews-section .section-sub   { color: rgba(255,255,255,0.55); }
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-  gap: clamp(12px,2vw,20px);
-  margin-top: var(--space-lg);
+  gap: clamp(12px,2vw,20px); margin-top: var(--space-lg);
 }
 .review-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius); padding: clamp(18px,3vw,24px);
-  transition: var(--transition);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: clamp(18px,3vw,24px); transition: var(--transition);
 }
 .review-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 .review-stars { color: var(--gold-light); font-size: 0.9rem; margin-bottom: 10px; }
-.review-text {
-  font-size: clamp(0.82rem,1.4vw,0.88rem);
-  color: rgba(255,255,255,0.75); line-height: 1.6;
-  margin-bottom: 14px; font-style: italic;
-}
+.review-text { font-size: clamp(0.82rem,1.4vw,0.88rem); color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 14px; font-style: italic; }
 .review-author { display: flex; align-items: center; gap: 10px; }
 .review-avatar {
   width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--leaf), var(--gold));
-  display: grid; place-items: center; color: white;
-  font-weight: 700; font-size: 0.82rem;
+  display: grid; place-items: center; color: white; font-weight: 700; font-size: 0.82rem;
 }
 .review-name { font-weight: 600; font-size: 0.85rem; color: var(--white); }
 .review-role { font-size: 0.72rem; color: rgba(255,255,255,0.45); }
@@ -647,72 +566,41 @@ body::before {
 /* ═══════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════ */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(24px,5vw,56px); align-items: start;
-}
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,5vw,56px); align-items: start; }
 .about-visual {
   background: linear-gradient(135deg, var(--forest), var(--forest-mid));
   border-radius: var(--radius-lg); padding: clamp(32px,5vw,56px) clamp(24px,4vw,40px);
   text-align: center; color: white;
 }
 .about-visual-icon { font-size: clamp(3rem,7vw,5.5rem); display: block; margin-bottom: 18px; }
-.about-visual h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.2rem,3vw,1.8rem); margin-bottom: 12px;
-}
+.about-visual h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem,3vw,1.8rem); margin-bottom: 12px; }
 .about-visual p { color: rgba(255,255,255,0.65); line-height: 1.65; font-size: clamp(0.85rem,1.5vw,0.95rem); }
-.about-stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px;
-}
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
 .about-stat {
   background: var(--card-bg); border-radius: var(--radius); padding: 18px;
   border: 1.5px solid var(--card-border);
 }
-.about-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.3rem,3vw,1.8rem); color: var(--gold); font-weight: 700;
-}
+.about-stat-num { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem,3vw,1.8rem); color: var(--gold); font-weight: 700; }
 .about-stat-label { font-size: clamp(0.72rem,1.2vw,0.8rem); color: var(--text-mid); }
 
 /* ═══════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════ */
-footer {
-  background: var(--forest);
-  padding: clamp(36px,6vw,60px) var(--page-pad) clamp(20px,3vw,28px);
-}
+footer { background: var(--forest); padding: clamp(36px,6vw,60px) var(--page-pad) clamp(20px,3vw,28px); }
 .footer-grid {
-  display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: clamp(24px,4vw,48px);
-  margin-bottom: clamp(28px,4vw,44px);
+  display: grid; grid-template-columns: 2fr repeat(3, 1fr);
+  gap: clamp(24px,4vw,48px); margin-bottom: clamp(28px,4vw,44px);
 }
-.footer-brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.1rem,2.5vw,1.4rem); color: white; margin-bottom: 9px;
-}
+.footer-brand-name { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem,2.5vw,1.4rem); color: white; margin-bottom: 9px; }
 .footer-brand p { font-size: clamp(0.78rem,1.3vw,0.85rem); color: rgba(255,255,255,0.5); line-height: 1.6; }
-.footer-col h4 {
-  color: white; font-size: clamp(0.72rem,1.2vw,0.8rem); font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;
-}
+.footer-col h4 { color: white; font-size: clamp(0.72rem,1.2vw,0.8rem); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-.footer-col li {
-  font-size: clamp(0.78rem,1.3vw,0.85rem); color: rgba(255,255,255,0.48);
-  cursor: pointer; transition: var(--transition);
-}
+.footer-col li { font-size: clamp(0.78rem,1.3vw,0.85rem); color: rgba(255,255,255,0.48); cursor: pointer; transition: var(--transition); }
 .footer-col li:hover { color: var(--gold-light); }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: clamp(16px,2.5vw,22px);
-  text-align: center; font-size: clamp(0.72rem,1.2vw,0.8rem);
-  color: rgba(255,255,255,0.3);
-}
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: clamp(16px,2.5vw,22px); text-align: center; font-size: clamp(0.72rem,1.2vw,0.8rem); color: rgba(255,255,255,0.3); }
 
 /* ═══════════════════════════════════════
-   TOAST NOTIFICATION
+   TOAST
 ═══════════════════════════════════════ */
 #toast {
   position: fixed; z-index: 9999;
@@ -721,8 +609,7 @@ footer {
   padding: clamp(11px,2vw,14px) clamp(14px,3vw,20px);
   border-radius: var(--radius-sm); font-size: clamp(0.82rem,1.4vw,0.88rem);
   font-weight: 500; box-shadow: var(--shadow-lg); max-width: clamp(240px,70vw,320px);
-  transform: translateY(90px) scale(0.95); opacity: 0;
-  transition: var(--transition-slow);
+  transform: translateY(90px) scale(0.95); opacity: 0; transition: var(--transition-slow);
   pointer-events: none;
 }
 #toast.show { transform: translateY(0) scale(1); opacity: 1; }
@@ -730,7 +617,7 @@ footer {
 #toast.success { background: var(--success); }
 
 /* ═══════════════════════════════════════
-   OVERLAY (mobile nav backdrop)
+   OVERLAY
 ═══════════════════════════════════════ */
 #overlay {
   position: fixed; inset: 0; z-index: 198;
@@ -740,81 +627,38 @@ footer {
 #overlay.show { opacity: 1; pointer-events: all; }
 
 /* ═══════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE
 ═══════════════════════════════════════ */
-
-/* ── LARGE: 1280px+ — keep sidebar at 340px ── */
-@media (min-width: 1280px) {
-  .module-layout { grid-template-columns: 1fr 340px; }
-}
-
-/* ── MEDIUM-LARGE: 1024px–1280px ── */
-@media (max-width: 1280px) and (min-width: 1025px) {
-  .nav-link { padding: 5px 8px; font-size: 0.76rem; }
-}
-
-/* ── TABLET LANDSCAPE / SMALL DESKTOP: 769px–1024px ── */
+@media (min-width: 1280px) { .module-layout { grid-template-columns: 1fr 340px; } }
+@media (max-width: 1280px) and (min-width: 1025px) { .nav-link { padding: 5px 8px; font-size: 0.76rem; } }
 @media (max-width: 1024px) {
   :root { --nav-h: 60px; }
-
-  /* Hero: stack vertically */
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: unset;
-    padding-bottom: var(--space-xl);
-  }
+  .hero { grid-template-columns: 1fr; min-height: unset; padding-bottom: var(--space-xl); }
   .hero-cards { grid-template-columns: repeat(4, 1fr); }
   .hero-card.span-2 { grid-column: span 2; }
   .hero-desc { max-width: 100%; }
-
-  /* Sidebar collapses below form */
   .module-layout { grid-template-columns: 1fr; }
   .sidebar-card { position: static; }
-
-  /* Footer collapses */
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer-brand { grid-column: span 2; }
-
-  /* About grid */
   .about-grid { grid-template-columns: 1fr; max-width: 600px; }
-
-  /* Nav hides desktop links, shows hamburger */
   .nav-desktop-links { display: none; }
   .hamburger { display: flex; }
   .nav-cta { display: none; }
 }
-
-/* ── TABLET PORTRAIT: 481px–768px ── */
 @media (max-width: 768px) {
   :root { --nav-h: 58px; }
-
-  .hero-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .hero-cards { grid-template-columns: repeat(2, 1fr); }
   .hero-card.span-2 { grid-column: span 2; flex-direction: row; }
-
-  .stats-bar {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Form always single-column on tablet */
-  .form-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: 1fr 1fr; }
   .reviews-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
 }
-
-/* ── MOBILE LARGE: 361px–480px ── */
 @media (max-width: 480px) {
   :root { --nav-h: 56px; }
-
   .hero { padding-top: var(--space-lg); gap: var(--space-lg); }
   .hero-title { letter-spacing: -0.01em; }
   .hero-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -822,33 +666,16 @@ footer {
   .hero-card-icon { font-size: 1.4rem; }
   .btn-row { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
-
-  .stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
+  .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .features-grid { grid-template-columns: 1fr; }
-
   .module-layout { gap: 16px; }
-
   .form-grid { grid-template-columns: 1fr; }
-
   .reviews-grid { grid-template-columns: 1fr; }
-
   .footer-grid { grid-template-columns: 1fr; }
   .footer-brand { grid-column: span 1; }
-
   .about-stats { grid-template-columns: 1fr 1fr; }
-
-  /* Toast at bottom full-width on mobile */
-  #toast {
-    left: clamp(12px,4vw,20px); right: clamp(12px,4vw,20px);
-    max-width: 100%;
-  }
+  #toast { left: clamp(12px,4vw,20px); right: clamp(12px,4vw,20px); max-width: 100%; }
 }
-
-/* ── MOBILE SMALL: < 360px ── */
 @media (max-width: 360px) {
   :root { --nav-h: 54px; }
   .nav-logo-text { font-size: 1rem; }
@@ -858,140 +685,195 @@ footer {
   .stats-bar { grid-template-columns: 1fr 1fr; }
   .about-stats { grid-template-columns: 1fr; }
 }
-
-/* ── LANDSCAPE PHONE fix ── */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero { min-height: unset; padding: 20px var(--page-pad); }
   .module-banner { padding: 24px var(--page-pad) 18px; }
 }
-
-/* ── HIGH-DPI / Retina ── */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .nav-logo-icon { image-rendering: crisp-edges; }
-}
-
-/* ── Print ── */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { .nav-logo-icon { image-rendering: crisp-edges; } }
 @media print {
   #nav, #mobile-nav, #overlay, #toast, .submit-btn, .hamburger { display: none !important; }
   .page { display: block !important; padding-top: 0; }
   .module-layout { grid-template-columns: 1fr; }
   .sidebar-card { display: none; }
 }
-
-/* ── Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   .skeleton { animation: none; background: var(--cream-dark); }
 }
 
-/* ── Dark mode ── */
+/* ═══════════════════════════════════════
+   DARK MODE
+   ─────────────────────────────────────
+   WHY this approach:
+   --forest (#1B3A2D) is used both as a BACKGROUND (banners, buttons, footer)
+   and as a TEXT colour (headings, labels). Remapping the variable would break
+   all the dark-green backgrounds. Instead we:
+   1. Override CSS variables for surfaces, text, shadows.
+   2. Directly fix the two hardcoded rgba() nav backgrounds.
+   3. Explicitly list every element that uses --forest as *text* and give
+      it a light readable green.
+═══════════════════════════════════════ */
 @media (prefers-color-scheme: dark) {
+
+  /* ── 1. Surface & text token overrides ── */
   :root {
-    --cream:      #1A2820;
-    --cream-dark: #1F3028;
-    --card-bg:    rgba(35,55,42,0.88);
-    --card-border:rgba(74,140,92,0.15);
-    --text-dark:  #E8F0EC;
-    --text-mid:   #9AB5A0;
-    --text-light: #5A7A64;
-    --white:      #E8F0EC;
+    --cream:        #111c16;
+    --cream-dark:   #0c1510;
+    --sand:         #223020;
+    --gold-pale:    #221804;
+
+    --text-dark:    #ddeee3;
+    --text-mid:     #88b598;
+    --text-light:   #4e6a58;
+    --white:        #ddeee3;
+
+    --card-bg:      rgba(16, 30, 21, 0.97);
+    --card-border:  rgba(74, 140, 92, 0.17);
+
+    --shadow-sm:    0 2px 8px  rgba(0,0,0,0.45);
+    --shadow-md:    0 8px 32px rgba(0,0,0,0.55);
+    --shadow-lg:    0 16px 48px rgba(0,0,0,0.65);
   }
+
+  /* ── 2. Fix hardcoded nav backgrounds ──
+     These are rgba(247,242,234,…) — NOT using a CSS variable,
+     so token overrides never reach them. Must target directly. */
+  #nav {
+    background: rgba(9, 15, 11, 0.94);
+    border-bottom-color: rgba(74,140,92,0.14);
+  }
+  #mobile-nav {
+    background: rgba(9, 15, 11, 0.98);
+    border-bottom-color: rgba(74,140,92,0.14);
+  }
+
+  /* ── 3. Fix --forest used as TEXT colour ──
+     Cannot remap --forest globally (it's also used for dark-green
+     backgrounds that must stay dark). List every text element explicitly. */
+  .nav-logo-text,
+  .section-title,
+  .hero-title,
+  .hero-card h3,
+  .feature-card h3,
+  .form-title,
+  .result-header-text h3,
+  .sidebar-card h4 {
+    color: #7ed4a0;
+  }
+
+  /* result body bold text */
+  .result-body strong { color: #9fddba; }
+
+  /* ── 4. Hero gradient-text (leaf → forest ends near-black) ── */
+  .hero-title em {
+    background: linear-gradient(135deg, var(--gold-light), var(--leaf-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── 5. Form controls ── */
   .form-input, .form-select, .form-textarea {
-    background: var(--cream-dark); color: var(--text-dark);
-    border-color: rgba(74,140,92,0.25);
+    background: rgba(10, 18, 13, 0.92);
+    color: var(--text-dark);
+    border-color: rgba(74,140,92,0.22);
   }
-  .feature-icon { background: var(--cream-dark); }
-  #nav, #mobile-nav { background: rgba(26,40,32,0.92); }
-  .about-stat { background: var(--cream-dark); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    background: rgba(16, 30, 21, 1);
+    border-color: var(--leaf);
+    box-shadow: 0 0 0 3px rgba(74,140,92,0.15);
+  }
+  /* Native select dropdown options */
+  option { background: #111c16; color: #ddeee3; }
+
+  /* ── 6. Feature icons ── */
+  .feature-icon { background: rgba(16, 30, 21, 0.9); }
+
+  /* ── 7. Upload drop zone ── */
+  .upload-dropzone {
+    background: rgba(10, 18, 13, 0.82);
+    border-color: rgba(74,140,92,0.34);
+  }
+  .upload-dropzone:hover, .upload-dropzone.dragover {
+    background: rgba(16, 30, 21, 0.94);
+    border-color: var(--leaf);
+  }
+
+  /* ── 8. About stats cards ── */
+  .about-stat {
+    background: rgba(10, 18, 13, 0.9);
+    border-color: rgba(74,140,92,0.18);
+  }
+
+  /* ── 9. Result body text ── */
+  .result-body { color: var(--text-dark); }
+
+  /* ── 10. Skeleton loader ── */
+  .skeleton {
+    background: linear-gradient(90deg,
+      rgba(16,34,22,0.92) 25%,
+      rgba(24,50,32,0.72) 50%,
+      rgba(16,34,22,0.92) 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+
+  /* ── 11. Mobile nav text ── */
+  .mobile-nav-link { color: var(--text-dark); }
+  .mobile-nav-link:hover, .mobile-nav-link.active {
+    background: rgba(74,140,92,0.2);
+    color: #7ed4a0;
+  }
+
+  /* ── 12. AI output formatting classes ── */
+  .res-h3     { color: #7ed4a0; }
+  .res-h4     { color: #5cb87a; border-left-color: var(--leaf); }
+  .res-h5     { color: var(--leaf-light); }
+  .res-ul li  { background: rgba(74,140,92,0.1); }
+  .res-warn   { background: rgba(200,150,42,0.12); border-color: rgba(200,150,42,0.28); }
+  .res-ok     { background: rgba(39,174,96,0.1);  border-color: rgba(39,174,96,0.22); }
+  .res-takeaway { color: var(--gold-light); border-left-color: var(--gold-light); }
+
+  /* ── 13. Scrollbar ── */
+  ::-webkit-scrollbar-track { background: var(--cream-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--leaf); }
 }
 
 /* ════════════════════════════════════
-   UTILITY CLASSES
+   UTILITY
 ════════════════════════════════════ */
 .hidden { display: none !important; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
-
-/* Sky accent chip — new from reference palette */
-.chip-sky {
-  display: inline-block; padding: 3px 10px; border-radius: 20px;
-  font-size: 0.75rem; font-weight: 600;
-  background: rgba(122,173,207,0.15); color: var(--sky);
-}
+.chip-sky { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; background:rgba(122,173,207,0.15); color:var(--sky); }
 
 /* ════════════════════════════════════
-   IMAGE UPLOAD — Disease Detection
+   IMAGE UPLOAD
 ════════════════════════════════════ */
 .upload-section { margin-bottom: 18px; }
-
-.upload-label-text {
-  display: block; font-size: 0.82rem; font-weight: 600;
-  color: var(--text-mid); text-transform: uppercase;
-  letter-spacing: 0.05em; margin-bottom: 5px;
-}
-.upload-hint {
-  display: block; font-size: 0.80rem;
-  color: var(--text-light); margin-bottom: 9px;
-  line-height: 1.5;
-}
-
+.upload-label-text { display:block; font-size:0.82rem; font-weight:600; color:var(--text-mid); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:5px; }
+.upload-hint { display:block; font-size:0.80rem; color:var(--text-light); margin-bottom:9px; line-height:1.5; }
 .upload-dropzone {
-  position: relative; overflow: hidden;
-  border: 2px dashed rgba(74,140,92,0.4);
-  border-radius: var(--radius-sm);
-  padding: 26px 20px; text-align: center;
-  cursor: pointer; background: var(--cream);
-  transition: var(--transition);
+  position:relative; overflow:hidden; border:2px dashed rgba(74,140,92,0.4);
+  border-radius:var(--radius-sm); padding:26px 20px; text-align:center;
+  cursor:pointer; background:var(--cream); transition:var(--transition);
 }
-.upload-dropzone:hover,
-.upload-dropzone.dragover {
-  border-color: var(--leaf);
-  background: rgba(74,140,92,0.04);
-}
-.upload-dropzone input[type="file"] {
-  position: absolute; inset: 0;
-  opacity: 0; cursor: pointer;
-  width: 100%; height: 100%;
-}
-.upload-icon { font-size: 2rem; display: block; margin-bottom: 7px; }
-.upload-text {
-  font-size: 0.88rem; font-weight: 500;
-  color: var(--text-mid);
-}
-.upload-subtext {
-  font-size: 0.76rem; color: var(--text-light); margin-top: 3px;
-}
-
-.upload-preview { display: none; margin-top: 12px; position: relative; }
-.upload-preview.has-image { display: block; }
-.upload-preview img {
-  width: 100%; max-height: 240px; object-fit: cover;
-  border-radius: var(--radius-sm);
-  border: 2px solid rgba(74,140,92,0.22);
-  display: block;
-}
+.upload-dropzone:hover, .upload-dropzone.dragover { border-color:var(--leaf); background:rgba(74,140,92,0.04); }
+.upload-dropzone input[type="file"] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+.upload-icon { font-size:2rem; display:block; margin-bottom:7px; }
+.upload-text { font-size:0.88rem; font-weight:500; color:var(--text-mid); }
+.upload-subtext { font-size:0.76rem; color:var(--text-light); margin-top:3px; }
+.upload-preview { display:none; margin-top:12px; position:relative; }
+.upload-preview.has-image { display:block; }
+.upload-preview img { width:100%; max-height:240px; object-fit:cover; border-radius:var(--radius-sm); border:2px solid rgba(74,140,92,0.22); display:block; }
 .upload-remove-btn {
-  position: absolute; top: 8px; right: 8px;
-  background: rgba(192,57,43,0.88);
-  color: white; border: none; border-radius: 50%;
-  width: 28px; height: 28px; cursor: pointer;
-  font-size: 0.76rem; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
+  position:absolute; top:8px; right:8px; background:rgba(192,57,43,0.88);
+  color:white; border:none; border-radius:50%; width:28px; height:28px;
+  cursor:pointer; font-size:0.76rem; font-weight:700;
+  display:flex; align-items:center; justify-content:center; transition:var(--transition);
 }
-.upload-remove-btn:hover { background: var(--error); transform: scale(1.1); }
-.upload-filename {
-  font-size: 0.76rem; color: var(--text-mid);
-  margin-top: 6px; display: flex; align-items: center; gap: 5px;
-}
-.upload-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 9px; border-radius: 20px;
-  background: rgba(74,140,92,0.1); color: var(--leaf);
-  font-size: 0.72rem; font-weight: 600; margin-top: 6px;
-}
+.upload-remove-btn:hover { background:var(--error); transform:scale(1.1); }
+.upload-filename { font-size:0.76rem; color:var(--text-mid); margin-top:6px; display:flex; align-items:center; gap:5px; }
+.upload-badge { display:inline-flex; align-items:center; gap:5px; padding:3px 9px; border-radius:20px; background:rgba(74,140,92,0.1); color:var(--leaf); font-size:0.72rem; font-weight:600; margin-top:6px; }
 </style>
 </head>
 <body>
@@ -1004,7 +886,6 @@ footer {
     <div class="nav-logo-icon" aria-hidden="true">🌾</div>
     <span class="nav-logo-text">AgriMitra</span>
   </div>
-
   <div class="nav-desktop-links" role="menubar">
     <button class="nav-link active" onclick="showPage('home')"       role="menuitem">Home</button>
     <button class="nav-link"       onclick="showPage('disease')"     role="menuitem">Disease</button>
@@ -1016,24 +897,20 @@ footer {
     <button class="nav-link"       onclick="showPage('weather')"     role="menuitem">Weather</button>
     <button class="nav-link"       onclick="showPage('about')"       role="menuitem">About</button>
   </div>
-
   <button class="nav-cta" onclick="showPage('disease')" aria-label="Get AI advice">Get AI Advice →</button>
-
-  <button class="hamburger" id="hamburger" aria-label="Open navigation menu"
-          aria-expanded="false" aria-controls="mobile-nav">
+  <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile drawer -->
 <div id="mobile-nav" role="menu" aria-label="Mobile navigation">
-  <button class="mobile-nav-link active" onclick="showPage('home');closeMobileNav()"   role="menuitem">🏠 Home</button>
+  <button class="mobile-nav-link active" onclick="showPage('home');closeMobileNav()"       role="menuitem">🏠 Home</button>
   <button class="mobile-nav-link"        onclick="showPage('disease');closeMobileNav()"    role="menuitem">🔬 Crop Disease Detection</button>
   <button class="mobile-nav-link"        onclick="showPage('fertilizer');closeMobileNav()" role="menuitem">🧪 Fertilizer Optimizer</button>
   <button class="mobile-nav-link"        onclick="showPage('irrigation');closeMobileNav()" role="menuitem">💧 Irrigation Planner</button>
   <button class="mobile-nav-link"        onclick="showPage('market');closeMobileNav()"     role="menuitem">📊 Market Intelligence</button>
   <div class="mobile-nav-divider" role="separator"></div>
-  <button class="mobile-nav-link"        onclick="showPage('subsidy');closeMobileNav()"    role="menuitem">🏛️ Subsidies & Loans</button>
+  <button class="mobile-nav-link"        onclick="showPage('subsidy');closeMobileNav()"    role="menuitem">🏛️ Subsidies &amp; Loans</button>
   <button class="mobile-nav-link"        onclick="showPage('soil');closeMobileNav()"       role="menuitem">🪱 Soil Health</button>
   <button class="mobile-nav-link"        onclick="showPage('weather');closeMobileNav()"    role="menuitem">🌤️ Weather Advisory</button>
   <button class="mobile-nav-link"        onclick="showPage('harvest');closeMobileNav()"    role="menuitem">🌾 Harvest Planning</button>
@@ -1048,57 +925,28 @@ footer {
      HOME PAGE
 ════════════════════════════════════ -->
 <main id="page-home" class="page active" role="main">
-
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-badge">🟢 AI-Powered Advisory — Live</div>
-      <h1 class="hero-title">
-        Smart Farming<br>
-        Starts with<br>
-        <span>AgriMitra</span>
-      </h1>
-      <p class="hero-desc">
-        Your pocket agricultural advisor — powered by AI. Instant guidance on crop diseases, fertilizers, irrigation, market prices, and government subsidies. Free. Always available.
-      </p>
+      <h1 class="hero-title">Smart Farming<br>Starts with<br><span>AgriMitra</span></h1>
+      <p class="hero-desc">Your pocket agricultural advisor — powered by AI. Instant guidance on crop diseases, fertilizers, irrigation, market prices, and government subsidies. Free. Always available.</p>
       <div class="btn-row">
         <button class="btn btn-primary" onclick="showPage('disease')">🔬 Diagnose My Crop</button>
         <button class="btn btn-outline" onclick="showPage('market')">📈 Check Market Price</button>
       </div>
     </div>
-
     <div class="hero-cards" aria-label="Quick access modules">
       <div class="hero-card span-2" onclick="showPage('disease')" role="button" tabindex="0">
         <div class="hero-card-icon">🦠</div>
-        <div>
-          <h3>Crop Disease Detection</h3>
-          <p>Describe symptoms → AI identifies disease + full treatment plan in seconds</p>
-        </div>
+        <div><h3>Crop Disease Detection</h3><p>Describe symptoms → AI identifies disease + full treatment plan in seconds</p></div>
       </div>
-      <div class="hero-card" onclick="showPage('fertilizer')" role="button" tabindex="0">
-        <div class="hero-card-icon">🧪</div>
-        <h3>Fertilizer</h3>
-        <p>NPK optimization & schedules</p>
-      </div>
-      <div class="hero-card" onclick="showPage('irrigation')" role="button" tabindex="0">
-        <div class="hero-card-icon">💧</div>
-        <h3>Irrigation</h3>
-        <p>Smart water scheduling</p>
-      </div>
-      <div class="hero-card" onclick="showPage('market')" role="button" tabindex="0">
-        <div class="hero-card-icon">📊</div>
-        <h3>Market</h3>
-        <p>Price trends & mandi advice</p>
-      </div>
-      <div class="hero-card" onclick="showPage('subsidy')" role="button" tabindex="0">
-        <div class="hero-card-icon">🏛️</div>
-        <h3>Subsidies</h3>
-        <p>Find eligible govt schemes</p>
-      </div>
+      <div class="hero-card" onclick="showPage('fertilizer')" role="button" tabindex="0"><div class="hero-card-icon">🧪</div><h3>Fertilizer</h3><p>NPK optimization &amp; schedules</p></div>
+      <div class="hero-card" onclick="showPage('irrigation')" role="button" tabindex="0"><div class="hero-card-icon">💧</div><h3>Irrigation</h3><p>Smart water scheduling</p></div>
+      <div class="hero-card" onclick="showPage('market')"    role="button" tabindex="0"><div class="hero-card-icon">📊</div><h3>Market</h3><p>Price trends &amp; mandi advice</p></div>
+      <div class="hero-card" onclick="showPage('subsidy')"   role="button" tabindex="0"><div class="hero-card-icon">🏛️</div><h3>Subsidies</h3><p>Find eligible govt schemes</p></div>
     </div>
   </section>
 
-  <!-- Stats -->
   <div class="stats-bar" role="region" aria-label="AgriMitra statistics">
     <div class="stat-item"><div class="stat-num">9+</div><div class="stat-label">AI Modules</div></div>
     <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Diseases Covered</div></div>
@@ -1107,71 +955,24 @@ footer {
     <div class="stat-item"><div class="stat-num">Free</div><div class="stat-label">Always Free</div></div>
   </div>
 
-  <!-- Features -->
   <section class="section">
     <div class="section-header">
       <h2 class="section-title">Everything a Farmer Needs</h2>
       <p class="section-sub">Comprehensive AI tools designed for India's 140 million small and marginal farmers</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card" onclick="showPage('disease')" role="button" tabindex="0">
-        <div class="feature-icon">🔬</div>
-        <h3>Crop Disease Detection</h3>
-        <p>Describe symptoms or upload a photo to get instant AI diagnosis and a precise treatment plan.</p>
-        <span class="feature-tag">AI Diagnosis</span>
-      </div>
-      <div class="feature-card" onclick="showPage('fertilizer')" role="button" tabindex="0">
-        <div class="feature-icon">🌱</div>
-        <h3>Fertilizer Optimization</h3>
-        <p>Get NPK doses, application schedules, and organic alternatives based on soil type and crop.</p>
-        <span class="feature-tag">Soil-Specific</span>
-      </div>
-      <div class="feature-card" onclick="showPage('irrigation')" role="button" tabindex="0">
-        <div class="feature-icon">💧</div>
-        <h3>Irrigation Planning</h3>
-        <p>Optimal water requirements and scheduling for each growth stage. Save up to 40% water.</p>
-        <span class="feature-tag">Water Smart</span>
-      </div>
-      <div class="feature-card" onclick="showPage('market')" role="button" tabindex="0">
-        <div class="feature-icon">📈</div>
-        <h3>Market Intelligence</h3>
-        <p>Price trends, best mandis, MSP comparison, and the right time to sell your produce.</p>
-        <span class="feature-tag">Price Insights</span>
-      </div>
-      <div class="feature-card" onclick="showPage('subsidy')" role="button" tabindex="0">
-        <div class="feature-icon">🏛️</div>
-        <h3>Subsidy & Loan Finder</h3>
-        <p>Discover PM-KISAN, crop insurance, equipment subsidies, and KCC loans you qualify for.</p>
-        <span class="feature-tag">Govt. Schemes</span>
-      </div>
-      <div class="feature-card" onclick="showPage('soil')" role="button" tabindex="0">
-        <div class="feature-icon">🪱</div>
-        <h3>Soil Health Analysis</h3>
-        <p>Input soil test values and get AI interpretation, amendments, and ideal crop suggestions.</p>
-        <span class="feature-tag">Soil Science</span>
-      </div>
-      <div class="feature-card" onclick="showPage('weather')" role="button" tabindex="0">
-        <div class="feature-icon">🌤️</div>
-        <h3>Weather-Based Advisory</h3>
-        <p>Farming recommendations based on current weather conditions and seasonal forecasts.</p>
-        <span class="feature-tag">Weather Smart</span>
-      </div>
-      <div class="feature-card" onclick="showPage('harvest')" role="button" tabindex="0">
-        <div class="feature-icon">🌾</div>
-        <h3>Harvest Planning</h3>
-        <p>Know when to harvest, post-harvest handling tips, and storage guidance to minimize losses.</p>
-        <span class="feature-tag">Yield Optimizer</span>
-      </div>
-      <div class="feature-card" onclick="showPage('organic')" role="button" tabindex="0">
-        <div class="feature-icon">🍀</div>
-        <h3>Organic Farming Guide</h3>
-        <p>Transition guidance, biofertilizers, Jeevamrutha, composting, and organic certification.</p>
-        <span class="feature-tag">Eco Farming</span>
-      </div>
+      <div class="feature-card" onclick="showPage('disease')"    role="button" tabindex="0"><div class="feature-icon">🔬</div><h3>Crop Disease Detection</h3><p>Describe symptoms or upload a photo to get instant AI diagnosis and a precise treatment plan.</p><span class="feature-tag">AI Diagnosis</span></div>
+      <div class="feature-card" onclick="showPage('fertilizer')" role="button" tabindex="0"><div class="feature-icon">🌱</div><h3>Fertilizer Optimization</h3><p>Get NPK doses, application schedules, and organic alternatives based on soil type and crop.</p><span class="feature-tag">Soil-Specific</span></div>
+      <div class="feature-card" onclick="showPage('irrigation')" role="button" tabindex="0"><div class="feature-icon">💧</div><h3>Irrigation Planning</h3><p>Optimal water requirements and scheduling for each growth stage. Save up to 40% water.</p><span class="feature-tag">Water Smart</span></div>
+      <div class="feature-card" onclick="showPage('market')"     role="button" tabindex="0"><div class="feature-icon">📈</div><h3>Market Intelligence</h3><p>Price trends, best mandis, MSP comparison, and the right time to sell your produce.</p><span class="feature-tag">Price Insights</span></div>
+      <div class="feature-card" onclick="showPage('subsidy')"    role="button" tabindex="0"><div class="feature-icon">🏛️</div><h3>Subsidy &amp; Loan Finder</h3><p>Discover PM-KISAN, crop insurance, equipment subsidies, and KCC loans you qualify for.</p><span class="feature-tag">Govt. Schemes</span></div>
+      <div class="feature-card" onclick="showPage('soil')"       role="button" tabindex="0"><div class="feature-icon">🪱</div><h3>Soil Health Analysis</h3><p>Input soil test values and get AI interpretation, amendments, and ideal crop suggestions.</p><span class="feature-tag">Soil Science</span></div>
+      <div class="feature-card" onclick="showPage('weather')"    role="button" tabindex="0"><div class="feature-icon">🌤️</div><h3>Weather-Based Advisory</h3><p>Farming recommendations based on current weather conditions and seasonal forecasts.</p><span class="feature-tag">Weather Smart</span></div>
+      <div class="feature-card" onclick="showPage('harvest')"    role="button" tabindex="0"><div class="feature-icon">🌾</div><h3>Harvest Planning</h3><p>Know when to harvest, post-harvest handling tips, and storage guidance to minimize losses.</p><span class="feature-tag">Yield Optimizer</span></div>
+      <div class="feature-card" onclick="showPage('organic')"    role="button" tabindex="0"><div class="feature-icon">🍀</div><h3>Organic Farming Guide</h3><p>Transition guidance, biofertilizers, Jeevamrutha, composting, and organic certification.</p><span class="feature-tag">Eco Farming</span></div>
     </div>
   </section>
 
-  <!-- Reviews -->
   <section class="reviews-section" role="region" aria-label="Farmer reviews">
     <div class="section-header">
       <h2 class="section-title">Farmers Love AgriMitra</h2>
@@ -1190,33 +991,9 @@ footer {
         <div class="footer-brand-name">🌾 AgriMitra</div>
         <p>AI-powered smart farming decision support for India's small and marginal farmers. Free. Accessible. Intelligent.</p>
       </div>
-      <div class="footer-col">
-        <h4>AI Tools</h4>
-        <ul>
-          <li onclick="showPage('disease')">Disease Detection</li>
-          <li onclick="showPage('fertilizer')">Fertilizer Advisor</li>
-          <li onclick="showPage('irrigation')">Irrigation Planner</li>
-          <li onclick="showPage('market')">Market Intelligence</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li onclick="showPage('subsidy')">Government Schemes</li>
-          <li onclick="showPage('soil')">Soil Health</li>
-          <li onclick="showPage('weather')">Weather Advice</li>
-          <li onclick="showPage('organic')">Organic Farming</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li onclick="showPage('about')">About Us</li>
-          <li>Privacy Policy</li>
-          <li>Terms of Use</li>
-          <li>Contact</li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>AI Tools</h4><ul><li onclick="showPage('disease')">Disease Detection</li><li onclick="showPage('fertilizer')">Fertilizer Advisor</li><li onclick="showPage('irrigation')">Irrigation Planner</li><li onclick="showPage('market')">Market Intelligence</li></ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul><li onclick="showPage('subsidy')">Government Schemes</li><li onclick="showPage('soil')">Soil Health</li><li onclick="showPage('weather')">Weather Advice</li><li onclick="showPage('organic')">Organic Farming</li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li onclick="showPage('about')">About Us</li><li>Privacy Policy</li><li>Terms of Use</li><li>Contact</li></ul></div>
     </div>
     <div class="footer-bottom">© 2025 AgriMitra — Built with ❤️ for Indian Farmers. Powered by AI.</div>
   </footer>
@@ -1241,11 +1018,9 @@ footer {
             <div class="form-group"><label class="form-label" for="d-part">Affected Part</label><select class="form-select" id="d-part"><option value="">Select</option><option>Leaves</option><option>Stem / Stalk</option><option>Roots</option><option>Fruit / Grain</option><option>Flowers</option><option>Whole Plant</option></select></div>
             <div class="form-group"><label class="form-label" for="d-severity">% Field Affected</label><select class="form-select" id="d-severity"><option value="">Select</option><option>Less than 10%</option><option>10–25%</option><option>25–50%</option><option>More than 50%</option></select></div>
           </div>
-
-          <!-- ── IMAGE UPLOAD ── -->
           <div class="upload-section">
             <span class="upload-label-text">📷 Upload Crop Photo (Optional but Recommended)</span>
-            <span class="upload-hint">Take a clear photo of the affected part — Gemini AI will visually analyse it alongside your text description for a more accurate diagnosis.</span>
+            <span class="upload-hint">Take a clear photo of the affected part — Gemini AI will visually analyse it for a more accurate diagnosis.</span>
             <div class="upload-dropzone" id="d-dropzone">
               <input type="file" id="d-image-input" accept="image/*" onchange="handleImageUpload(event)">
               <span class="upload-icon">📸</span>
@@ -1259,17 +1034,12 @@ footer {
               <span class="upload-badge" id="d-vision-badge">🤖 Gemini Vision will analyse this image</span>
             </div>
           </div>
-
-          <div class="form-grid full">
-            <div class="form-group"><label class="form-label" for="d-symptoms">Symptoms Description *</label><textarea class="form-textarea" id="d-symptoms" placeholder="e.g., Yellow spots on leaves with brown edges, leaves wilting, white powder on underside of leaves, brown lesions on stem, unusual smell..."></textarea></div>
-          </div>
+          <div class="form-grid full"><div class="form-group"><label class="form-label" for="d-symptoms">Symptoms Description *</label><textarea class="form-textarea" id="d-symptoms" placeholder="e.g., Yellow spots on leaves with brown edges, leaves wilting, white powder on underside of leaves..."></textarea></div></div>
           <div class="form-grid">
             <div class="form-group"><label class="form-label" for="d-when">When First Noticed</label><select class="form-select" id="d-when"><option value="">Select</option><option>Today</option><option>2–3 days ago</option><option>1 week ago</option><option>2+ weeks ago</option></select></div>
-            <div class="form-group"><label class="form-label" for="d-weather">Recent Weather</label><select class="form-select" id="d-weather"><option value="">Select</option><option>Hot & Dry</option><option>Hot & Humid</option><option>Cool & Wet</option><option>Rainy / Flooding</option><option>Normal</option></select></div>
+            <div class="form-group"><label class="form-label" for="d-weather">Recent Weather</label><select class="form-select" id="d-weather"><option value="">Select</option><option>Hot &amp; Dry</option><option>Hot &amp; Humid</option><option>Cool &amp; Wet</option><option>Rainy / Flooding</option><option>Normal</option></select></div>
           </div>
-          <div class="form-grid full">
-            <div class="form-group"><label class="form-label" for="d-location">Your State / Region</label><input class="form-input" id="d-location" placeholder="e.g., Andhra Pradesh, Punjab, Maharashtra..."></div>
-          </div>
+          <div class="form-grid full"><div class="form-group"><label class="form-label" for="d-location">Your State / Region</label><input class="form-input" id="d-location" placeholder="e.g., Andhra Pradesh, Punjab, Maharashtra..."></div></div>
           <button class="submit-btn" onclick="analyzeDisease()"><span id="d-btn-text">🔬 Analyze Disease with AI</span><div class="spinner" id="d-spinner" aria-hidden="true"></div></button>
         </div>
         <div id="d-result" class="result-card" role="region" aria-live="polite">
@@ -1278,7 +1048,7 @@ footer {
           <div class="result-body" id="d-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>💡 Pro Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Check both top and bottom surfaces of affected leaves — many fungal spores are on the underside</div><div class="tip-item"><span class="tip-bullet">→</span>Note if disease started from field edges or center — helps identify spread pattern</div><div class="tip-item"><span class="tip-bullet">→</span>Look for insect presence — insects often vector bacterial and viral diseases</div><div class="tip-item"><span class="tip-bullet">→</span>Most fungal diseases worsen in humid conditions (RH &gt; 80%)</div><div class="tip-item"><span class="tip-bullet">→</span>Isolate or flag affected plants to track spread direction</div><div class="tip-item"><span class="tip-bullet">→</span>Early morning is the best time to observe symptoms clearly</div></div>
+      <div class="sidebar-card"><h4>💡 Pro Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Check both top and bottom surfaces of affected leaves — many fungal spores are on the underside</div><div class="tip-item"><span class="tip-bullet">→</span>Note if disease started from field edges or center — helps identify spread pattern</div><div class="tip-item"><span class="tip-bullet">→</span>Look for insect presence — insects often vector bacterial and viral diseases</div><div class="tip-item"><span class="tip-bullet">→</span>Most fungal diseases worsen in humid conditions (RH &gt; 80%)</div><div class="tip-item"><span class="tip-bullet">→</span>Early morning is the best time to observe symptoms clearly</div></div>
     </div>
   </div>
 </div>
@@ -1293,7 +1063,7 @@ footer {
     <div class="module-layout">
       <div>
         <div class="form-card">
-          <div class="form-title">🌱 Crop & Soil Details</div>
+          <div class="form-title">🌱 Crop &amp; Soil Details</div>
           <div class="form-grid">
             <div class="form-group"><label class="form-label" for="f-crop">Crop *</label><select class="form-select" id="f-crop"><option value="">Select Crop</option><option>Rice</option><option>Wheat</option><option>Maize</option><option>Cotton</option><option>Sugarcane</option><option>Vegetables</option><option>Pulses</option><option>Groundnut</option><option>Soybean</option><option>Fruits</option><option>Other</option></select></div>
             <div class="form-group"><label class="form-label" for="f-area">Land Area (Acres)</label><input class="form-input" id="f-area" type="number" min="0.1" step="0.1" placeholder="e.g., 2.5"></div>
@@ -1310,7 +1080,7 @@ footer {
             <div class="form-group"><label class="form-label" for="f-irrigation">Irrigation</label><select class="form-select" id="f-irrigation"><option value="">Select</option><option>Drip Irrigation</option><option>Sprinkler</option><option>Canal / Flood</option><option>Borewell</option><option>Rain-fed Only</option></select></div>
             <div class="form-group"><label class="form-label" for="f-pref">Preference</label><select class="form-select" id="f-pref"><option value="">Select</option><option>Chemical OK</option><option>Prefer Organic</option><option>Mix of Both</option></select></div>
           </div>
-          <div class="form-grid full"><div class="form-group"><label class="form-label" for="f-notes">Additional Notes</label><textarea class="form-textarea" id="f-notes" placeholder="e.g., Yellowing of old leaves, stunted growth, fruit dropping, soil looks hard or crusted..."></textarea></div></div>
+          <div class="form-grid full"><div class="form-group"><label class="form-label" for="f-notes">Additional Notes</label><textarea class="form-textarea" id="f-notes" placeholder="e.g., Yellowing of old leaves, stunted growth, fruit dropping..."></textarea></div></div>
           <button class="submit-btn" onclick="analyzeFertilizer()"><span id="f-btn-text">🧪 Get Fertilizer Plan</span><div class="spinner" id="f-spinner"></div></button>
         </div>
         <div id="f-result" class="result-card" role="region" aria-live="polite">
@@ -1319,7 +1089,7 @@ footer {
           <div class="result-body" id="f-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>💡 Fertilizer Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Get a Soil Health Card from your nearest Krishi Kendra — it's completely FREE</div><div class="tip-item"><span class="tip-bullet">→</span>Split nitrogen into 2–3 applications — never apply all at once, reduces losses</div><div class="tip-item"><span class="tip-bullet">→</span>Previous pulse crop adds ~30–40 kg N/ha naturally to soil</div><div class="tip-item"><span class="tip-bullet">→</span>Apply fertilizers after light irrigation for better absorption</div><div class="tip-item"><span class="tip-bullet">→</span>Zinc deficiency (interveinal chlorosis) is the most common micronutrient issue</div></div>
+      <div class="sidebar-card"><h4>💡 Fertilizer Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Get a Soil Health Card from your nearest Krishi Kendra — it's completely FREE</div><div class="tip-item"><span class="tip-bullet">→</span>Split nitrogen into 2–3 applications — never apply all at once</div><div class="tip-item"><span class="tip-bullet">→</span>Previous pulse crop adds ~30–40 kg N/ha naturally to soil</div><div class="tip-item"><span class="tip-bullet">→</span>Apply fertilizers after light irrigation for better absorption</div><div class="tip-item"><span class="tip-bullet">→</span>Zinc deficiency is the most common micronutrient issue</div></div>
     </div>
   </div>
 </div>
@@ -1347,7 +1117,7 @@ footer {
             <div class="form-group"><label class="form-label" for="i-source">Water Source</label><select class="form-select" id="i-source"><option value="">Select</option><option>Canal / River</option><option>Borewell / Tubewell</option><option>Rain-fed</option><option>Farm Pond</option><option>Drip System</option></select></div>
             <div class="form-group"><label class="form-label" for="i-area">Area (Acres)</label><input class="form-input" id="i-area" type="number" min="0.1" step="0.1" placeholder="e.g., 3"></div>
           </div>
-          <div class="form-grid full"><div class="form-group"><label class="form-label" for="i-issue">Current Issue (if any)</label><textarea class="form-textarea" id="i-issue" placeholder="e.g., Leaves wilting in afternoon, soil dry 2 inches down, waterlogging after rain, water supply insufficient..."></textarea></div></div>
+          <div class="form-grid full"><div class="form-group"><label class="form-label" for="i-issue">Current Issue (if any)</label><textarea class="form-textarea" id="i-issue" placeholder="e.g., Leaves wilting in afternoon, soil dry 2 inches down..."></textarea></div></div>
           <button class="submit-btn" onclick="analyzeIrrigation()"><span id="i-btn-text">💧 Get Irrigation Plan</span><div class="spinner" id="i-spinner"></div></button>
         </div>
         <div id="i-result" class="result-card" role="region" aria-live="polite">
@@ -1356,7 +1126,7 @@ footer {
           <div class="result-body" id="i-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>💡 Water Saving Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Drip irrigation saves 40–50% water vs flood — PMKSY subsidy available</div><div class="tip-item"><span class="tip-bullet">→</span>Irrigate early morning or evening to reduce evaporation loss</div><div class="tip-item"><span class="tip-bullet">→</span>Finger test: push into soil 2 inches — if dry, time to irrigate</div><div class="tip-item"><span class="tip-bullet">→</span>Mulching reduces soil moisture loss by 25–30%</div><div class="tip-item"><span class="tip-bullet">→</span>Most critical stages: flowering and grain filling — never miss irrigation then</div></div>
+      <div class="sidebar-card"><h4>💡 Water Saving Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Drip irrigation saves 40–50% water vs flood — PMKSY subsidy available</div><div class="tip-item"><span class="tip-bullet">→</span>Irrigate early morning or evening to reduce evaporation loss</div><div class="tip-item"><span class="tip-bullet">→</span>Finger test: push into soil 2 inches — if dry, time to irrigate</div><div class="tip-item"><span class="tip-bullet">→</span>Mulching reduces soil moisture loss by 25–30%</div><div class="tip-item"><span class="tip-bullet">→</span>Critical stages: flowering and grain filling — never miss irrigation then</div></div>
     </div>
   </div>
 </div>
@@ -1393,7 +1163,7 @@ footer {
           <div class="result-body" id="m-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>💡 Smart Selling Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Register on eNAM portal for transparent auction and better prices</div><div class="tip-item"><span class="tip-bullet">→</span>Grading and cleaning produce can fetch 15–20% higher price</div><div class="tip-item"><span class="tip-bullet">→</span>Never sell in distress — use warehouse receipt financing to wait</div><div class="tip-item"><span class="tip-bullet">→</span>Join FPO (Farmer Producer Org) for collective bargaining power</div><div class="tip-item"><span class="tip-bullet">→</span>Always check MSP before selling — never sell below minimum support price</div></div>
+      <div class="sidebar-card"><h4>💡 Smart Selling Tips</h4><div class="tip-item"><span class="tip-bullet">→</span>Register on eNAM portal for transparent auction and better prices</div><div class="tip-item"><span class="tip-bullet">→</span>Grading and cleaning produce can fetch 15–20% higher price</div><div class="tip-item"><span class="tip-bullet">→</span>Never sell in distress — use warehouse receipt financing to wait</div><div class="tip-item"><span class="tip-bullet">→</span>Join FPO (Farmer Producer Org) for collective bargaining power</div><div class="tip-item"><span class="tip-bullet">→</span>Always check MSP before selling</div></div>
     </div>
   </div>
 </div>
@@ -1403,7 +1173,7 @@ footer {
      MODULE: SUBSIDY
 ════════════════════════════════════ -->
 <div id="page-subsidy" class="page">
-  <div class="module-banner"><span class="module-tag">🏛️ Government Schemes</span><h1 class="module-title">Subsidy & Loan Finder</h1><p class="module-desc">Discover all government schemes, subsidies, crop insurance, and agricultural loans you're eligible for — with step-by-step application guidance.</p></div>
+  <div class="module-banner"><span class="module-tag">🏛️ Government Schemes</span><h1 class="module-title">Subsidy &amp; Loan Finder</h1><p class="module-desc">Discover all government schemes, subsidies, crop insurance, and agricultural loans you're eligible for.</p></div>
   <div class="module-body">
     <div class="module-layout">
       <div>
@@ -1425,7 +1195,7 @@ footer {
           <button class="submit-btn" onclick="analyzeSubsidy()"><span id="s-btn-text">🏛️ Find My Eligible Schemes</span><div class="spinner" id="s-spinner"></div></button>
         </div>
         <div id="s-result" class="result-card" role="region" aria-live="polite">
-          <div class="result-header"><div class="result-icon" aria-hidden="true">🏛️</div><div class="result-header-text"><h3>Eligible Schemes & Subsidies</h3><div class="result-timestamp" id="s-ts"></div></div></div>
+          <div class="result-header"><div class="result-icon" aria-hidden="true">🏛️</div><div class="result-header-text"><h3>Eligible Schemes &amp; Subsidies</h3><div class="result-timestamp" id="s-ts"></div></div></div>
           <div class="result-skeleton hidden" id="s-skel"><div class="skeleton skeleton-line" style="width:80%"></div><div class="skeleton skeleton-block"></div><div class="skeleton skeleton-line" style="width:70%"></div><div class="skeleton skeleton-block"></div></div>
           <div class="result-body" id="s-result-text"></div>
         </div>
@@ -1471,7 +1241,7 @@ footer {
           <div class="result-body" id="sl-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>📊 Quick Reference</h4><div class="tip-item"><span class="tip-bullet">pH</span>5.5–7.5 ideal for most crops. Below 5.5 = acidic, above 8.5 = alkaline</div><div class="tip-item"><span class="tip-bullet">OC</span>Above 0.75% is good. Below 0.5% needs organic matter addition urgently</div><div class="tip-item"><span class="tip-bullet">N</span>&gt;280 kg/ha = High · 140–280 = Medium · &lt;140 = Low/Deficient</div><div class="tip-item"><span class="tip-bullet">P</span>&gt;20 kg/ha = High · 10–20 = Medium · &lt;10 = Low</div><div class="tip-item"><span class="tip-bullet">EC</span>&gt;4 dS/m = Saline soil — toxic for most crops, needs reclamation</div></div>
+      <div class="sidebar-card"><h4>📊 Quick Reference</h4><div class="tip-item"><span class="tip-bullet">pH</span>5.5–7.5 ideal for most crops. Below 5.5 = acidic, above 8.5 = alkaline</div><div class="tip-item"><span class="tip-bullet">OC</span>Above 0.75% is good. Below 0.5% needs organic matter addition urgently</div><div class="tip-item"><span class="tip-bullet">N</span>&gt;280 kg/ha = High · 140–280 = Medium · &lt;140 = Low/Deficient</div><div class="tip-item"><span class="tip-bullet">P</span>&gt;20 kg/ha = High · 10–20 = Medium · &lt;10 = Low</div><div class="tip-item"><span class="tip-bullet">EC</span>&gt;4 dS/m = Saline soil — toxic for most crops</div></div>
     </div>
   </div>
 </div>
@@ -1495,7 +1265,7 @@ footer {
             <div class="form-group"><label class="form-label" for="w-crop">Current Crop</label><select class="form-select" id="w-crop"><option value="">Select</option><option>Rice</option><option>Wheat</option><option>Cotton</option><option>Vegetables</option><option>Maize</option><option>Sugarcane</option><option>Pulses</option><option>Other</option></select></div>
             <div class="form-group"><label class="form-label" for="w-current">Current Weather</label><select class="form-select" id="w-current"><option value="">Select</option><option>Hot &amp; Sunny (&gt;38°C)</option><option>Moderate (25–35°C)</option><option>Cool (15–25°C)</option><option>Rainy / Monsoon</option><option>Heavy Rains / Flooding</option><option>Cold Wave (&lt;10°C)</option><option>Hailstorm Recently</option></select></div>
           </div>
-          <div class="form-grid full"><div class="form-group"><label class="form-label" for="w-concern">Specific Concern</label><textarea class="form-textarea" id="w-concern" placeholder="e.g., Heavy rain expected next week — should I harvest early? Or — drought conditions, crop wilting..."></textarea></div></div>
+          <div class="form-grid full"><div class="form-group"><label class="form-label" for="w-concern">Specific Concern</label><textarea class="form-textarea" id="w-concern" placeholder="e.g., Heavy rain expected next week — should I harvest early?"></textarea></div></div>
           <button class="submit-btn" onclick="analyzeWeather()"><span id="w-btn-text">🌤️ Get Weather-Based Advice</span><div class="spinner" id="w-spinner"></div></button>
         </div>
         <div id="w-result" class="result-card" role="region" aria-live="polite">
@@ -1514,7 +1284,7 @@ footer {
      MODULE: HARVEST
 ════════════════════════════════════ -->
 <div id="page-harvest" class="page">
-  <div class="module-banner"><span class="module-tag">🌾 AI Module</span><h1 class="module-title">Harvest Planning</h1><p class="module-desc">Know the perfect time to harvest, post-harvest handling best practices, and storage recommendations to minimize losses and maximize income.</p></div>
+  <div class="module-banner"><span class="module-tag">🌾 AI Module</span><h1 class="module-title">Harvest Planning</h1><p class="module-desc">Know the perfect time to harvest, post-harvest handling best practices, and storage recommendations to minimize losses.</p></div>
   <div class="module-body">
     <div class="module-layout">
       <div>
@@ -1537,7 +1307,7 @@ footer {
           <div class="result-body" id="h-result-text"></div>
         </div>
       </div>
-      <div class="sidebar-card"><h4>🌾 Harvest Wisdom</h4><div class="tip-item"><span class="tip-bullet">→</span>Harvest in cool morning hours to reduce moisture stress on crop</div><div class="tip-item"><span class="tip-bullet">→</span>Target moisture: Rice &lt;14%, Wheat &lt;12%, Maize &lt;13% for safe storage</div><div class="tip-item"><span class="tip-bullet">→</span>Post-harvest losses can be 15–30% — proper handling is crucial</div><div class="tip-item"><span class="tip-bullet">→</span>Use hermetic storage bags (PICS bags) to prevent storage pests</div><div class="tip-item"><span class="tip-bullet">→</span>Warehouse Receipt System allows loans against stored produce</div></div>
+      <div class="sidebar-card"><h4>🌾 Harvest Wisdom</h4><div class="tip-item"><span class="tip-bullet">→</span>Harvest in cool morning hours to reduce moisture stress</div><div class="tip-item"><span class="tip-bullet">→</span>Target moisture: Rice &lt;14%, Wheat &lt;12%, Maize &lt;13% for safe storage</div><div class="tip-item"><span class="tip-bullet">→</span>Post-harvest losses can be 15–30% — proper handling is crucial</div><div class="tip-item"><span class="tip-bullet">→</span>Use hermetic storage bags (PICS bags) to prevent storage pests</div><div class="tip-item"><span class="tip-bullet">→</span>Warehouse Receipt System allows loans against stored produce</div></div>
     </div>
   </div>
 </div>
@@ -1547,7 +1317,7 @@ footer {
      MODULE: ORGANIC
 ════════════════════════════════════ -->
 <div id="page-organic" class="page">
-  <div class="module-banner"><span class="module-tag">🍀 Organic Farming</span><h1 class="module-title">Organic Farming Guide</h1><p class="module-desc">Transition sustainably to organic farming. Get step-by-step guidance on biofertilizers, composting, pest management, and certification.</p></div>
+  <div class="module-banner"><span class="module-tag">🍀 Organic Farming</span><h1 class="module-title">Organic Farming Guide</h1><p class="module-desc">Transition sustainably to organic farming with step-by-step guidance on biofertilizers, composting, and certification.</p></div>
   <div class="module-body">
     <div class="module-layout">
       <div>
@@ -1588,7 +1358,7 @@ footer {
       <div>
         <h2 class="section-title" style="margin-bottom:14px;">Our Vision</h2>
         <p style="color:var(--text-mid);line-height:1.72;margin-bottom:16px;font-size:clamp(0.88rem,1.5vw,0.98rem);">India has 140 million farm households. 86% are small or marginal farmers with less than 5 acres. They face enormous challenges: crop diseases they can't identify, fertilizer decisions based on guesswork, market prices manipulated by middlemen, and government schemes they don't know about.</p>
-        <p style="color:var(--text-mid);line-height:1.72;font-size:clamp(0.88rem,1.5vw,0.98rem);">AgriMitra is designed to be the "agricultural extension officer in your pocket" — intelligent, accessible, and always available. By integrating AI with domain expertise, we give every farmer the same quality of advice that large commercial farms pay consultants thousands of rupees for.</p>
+        <p style="color:var(--text-mid);line-height:1.72;font-size:clamp(0.88rem,1.5vw,0.98rem);">AgriMitra is designed to be the "agricultural extension officer in your pocket" — intelligent, accessible, and always available.</p>
         <div class="about-stats">
           <div class="about-stat"><div class="about-stat-num">9</div><div class="about-stat-label">AI-Powered Modules</div></div>
           <div class="about-stat"><div class="about-stat-num">Free</div><div class="about-stat-label">Always for Farmers</div></div>
@@ -1601,9 +1371,6 @@ footer {
 </div>
 
 
-<!-- ════════════════════════════════════
-     TOAST
-════════════════════════════════════ -->
 <div id="toast" role="alert" aria-live="assertive"></div>
 
 
@@ -1614,22 +1381,94 @@ footer {
 'use strict';
 
 /* ═══════════════════════════════════════════════════════════
-   GEMINI FLASH API KEY
-   ➜ Get a FREE key at: https://aistudio.google.com/apikey
-   ➜ Paste it between the quotes below
+   SYSTEM PROMPT
 ═══════════════════════════════════════════════════════════ */
+const SYSTEM_PROMPT = `You are AgriMitra, an expert AI agricultural advisor for Indian farmers.
 
-/* ─── SYSTEM PROMPT ─── */
-const SYSTEM_PROMPT = `You are AgriMitra, an expert AI agricultural advisor. 
-STRICT RULE: You must respond ONLY in English. Even if the user uses Hindi terms, 
-provide all advice, headers, and explanations in clear, professional English.
+RESPONSE FORMAT — follow every time:
+- Use numbered sections: "1) SECTION TITLE" on its own line, then content below.
+- Use bullet points starting with "- " for lists.
+- Use **bold** for product names, quantities, prices (₹), and critical warnings.
+- Keep language simple and direct — suitable for farmers.
+- Be specific: exact kg/acre, product names available in India, prices in ₹, time frames.
+- End with a "KEY TAKEAWAY" section: 2–3 most critical action points.`;
 
-You have deep expertise in Indian agriculture: crops, soils, regional climate, 
-government schemes, and farming practices across all Indian states.
-Always give practical, actionable, region-specific advice. 
-Format your response with clear sections using headers (e.g., "DIAGNOSIS:", "TREATMENT:").
-Be specific with quantities, timing, and product names widely available in India.
-End each response with a brief KEY TAKEAWAY.`;
+/* ═══════════════════════════════════════════════════════════
+   AI RESPONSE FORMATTER
+   Converts Gemini markdown/plain text → clean styled HTML.
+   Processes line by line so output is always readable.
+═══════════════════════════════════════════════════════════ */
+function formatResponse(raw) {
+  if (!raw) return '';
+  const lines = raw.split('\n');
+  let html = '';
+  let inList = false;
+
+  function closeList() { if (inList) { html += '</ul>'; inList = false; } }
+
+  lines.forEach(function(rawLine) {
+    const t = rawLine.trim();
+    if (!t) { closeList(); return; }
+
+    // Escape HTML to prevent any injection
+    const e = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    // Numbered section header:  "1) **Title**"  or  "1. **Title**"
+    const mNumHdr = e.match(/^(\d+)[.)]\s+\*\*(.+?)\*\*\s*$/);
+    if (mNumHdr) {
+      closeList();
+      html += '<h4 class="res-h4"><span class="res-num">' + mNumHdr[1] + '</span>' + inl(mNumHdr[2]) + '</h4>';
+      return;
+    }
+
+    // Markdown headings
+    const mH3 = e.match(/^###\s+(.+)$/);  if (mH3) { closeList(); html += '<h5 class="res-h5">' + inl(mH3[1]) + '</h5>'; return; }
+    const mH2 = e.match(/^##\s+(.+)$/);   if (mH2) { closeList(); html += '<h4 class="res-h4">' + inl(mH2[1]) + '</h4>'; return; }
+    const mH1 = e.match(/^#\s+(.+)$/);    if (mH1) { closeList(); html += '<h3 class="res-h3">' + inl(mH1[1]) + '</h3>'; return; }
+
+    // ALL-CAPS section labels  "DIAGNOSIS:"  "KEY TAKEAWAY"
+    const mCaps = e.match(/^([A-Z][A-Z\s&\/\-,.]{2,40}):?\s*$/);
+    if (mCaps) {
+      closeList();
+      const lbl = mCaps[1].trim();
+      const isTakeaway = /TAKEAWAY|SUMMARY|CONCLUSION/.test(lbl);
+      html += isTakeaway
+        ? '<h4 class="res-takeaway">🔑 ' + lbl + '</h4>'
+        : '<h4 class="res-h4">' + lbl + '</h4>';
+      return;
+    }
+
+    // Bullet list item
+    const mBullet = e.match(/^[-\u2022*]\s+(.+)$/);
+    if (mBullet) { if (!inList) { html += '<ul class="res-ul">'; inList = true; } html += '<li>' + inl(mBullet[1]) + '</li>'; return; }
+
+    // Numbered list item (plain, after section-header pass)
+    const mNum = e.match(/^(\d+)[.)]\s+(.+)$/);
+    if (mNum) { if (!inList) { html += '<ul class="res-ul">'; inList = true; } html += '<li>' + inl(mNum[2]) + '</li>'; return; }
+
+    // Close list before paragraph
+    closeList();
+
+    // Warning / OK callouts
+    if (t.startsWith('\u26a0')) { html += '<div class="res-warn">' + inl(e) + '</div>'; return; }
+    if (t.startsWith('\u2705')) { html += '<div class="res-ok">'   + inl(e) + '</div>'; return; }
+
+    // Regular paragraph
+    html += '<p class="res-p">' + inl(e) + '</p>';
+  });
+
+  closeList();
+  return '<div class="res-body">' + html + '</div>';
+}
+
+/* Inline markdown: bold, italic, code — operates on already-escaped text */
+function inl(t) {
+  return t
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+    .replace(/`(.+?)`/g,       '<code style="background:rgba(74,140,92,0.1);padding:1px 5px;border-radius:3px;font-family:monospace;font-size:0.88em">$1</code>');
+}
+
 /* ═══════════════════════════════════════════════════════════
    CORE GEMINI CALL — TEXT ONLY
 ═══════════════════════════════════════════════════════════ */
@@ -1641,7 +1480,7 @@ async function callGemini(userMessage, config) {
   spinner.style.display = 'block';
   btnText.style.opacity = '0.5';
   resultCard.classList.add('visible');
-  resultText.textContent = '';
+  resultText.innerHTML = '';
   showSkeleton(skelId);
 
   try {
@@ -1658,24 +1497,25 @@ async function callGemini(userMessage, config) {
     });
 
     if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      const msg = err?.error?.message || `HTTP ${response.status}`;
-      throw new Error(msg);
+      const err = await response.json().catch(function(){ return {}; });
+      throw new Error(err && err.error && err.error.message ? err.error.message : 'HTTP ' + response.status);
     }
 
     const data = await response.json();
-    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('\n').trim();
+    const text = data && data.candidates && data.candidates[0] && data.candidates[0].content
+      ? data.candidates[0].content.parts.map(function(p){ return p.text || ''; }).join('\n').trim()
+      : '';
     if (!text) throw new Error('Empty response from Gemini.');
 
     hideSkeleton(skelId);
-    resultText.textContent = text;
+    resultText.innerHTML = formatResponse(text);
     timestamp.textContent = 'Generated at ' + new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-    showToast('✅ Gemini AI analysis complete!', 'success');
+    showToast('✅ Analysis complete!', 'success');
 
   } catch (err) {
     hideSkeleton(skelId);
-    resultText.textContent = '⚠️ Error: ' + err.message +
-      '\n\n📋 Setup: Replace GEMINI_API_KEY in the script with your free key from https://aistudio.google.com/apikey';
+    resultText.innerHTML = '<div class="res-warn">⚠️ ' + err.message + '</div>'
+      + '<p class="res-p">Check your API key and network connection. Make sure <code>GEMINI_API_KEY</code> is set in your Vercel environment variables.</p>';
     showToast('❌ ' + err.message, 'error');
   } finally {
     btn.disabled = false;
@@ -1686,7 +1526,6 @@ async function callGemini(userMessage, config) {
 
 /* ═══════════════════════════════════════════════════════════
    GEMINI VISION CALL — TEXT + IMAGE
-   Used exclusively for Disease Detection when image is uploaded
 ═══════════════════════════════════════════════════════════ */
 async function callGeminiVision(userMessage, imageBase64, imageMimeType, config) {
   const { btnText, spinner, resultCard, skelId, resultText, timestamp } = config;
@@ -1696,7 +1535,7 @@ async function callGeminiVision(userMessage, imageBase64, imageMimeType, config)
   spinner.style.display = 'block';
   btnText.style.opacity = '0.5';
   resultCard.classList.add('visible');
-  resultText.textContent = '';
+  resultText.innerHTML = '';
   showSkeleton(skelId);
 
   try {
@@ -1704,15 +1543,8 @@ async function callGeminiVision(userMessage, imageBase64, imageMimeType, config)
       systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
       contents: [{
         parts: [
-          {
-            inlineData: {
-              mimeType: imageMimeType,
-              data: imageBase64
-            }
-          },
-          {
-            text: userMessage + '\n\n[Note: A photo of the affected crop has been provided above. Please visually examine it carefully and incorporate your visual observations — colour changes, lesion patterns, texture anomalies — into your diagnosis.]'
-          }
+          { inlineData: { mimeType: imageMimeType, data: imageBase64 } },
+          { text: userMessage + '\n\n[A photo of the affected crop has been provided. Please visually examine it and incorporate observations into your diagnosis.]' }
         ]
       }],
       generationConfig: { maxOutputTokens: 8192, temperature: 0.35 }
@@ -1725,22 +1557,24 @@ async function callGeminiVision(userMessage, imageBase64, imageMimeType, config)
     });
 
     if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err?.error?.message || `HTTP ${response.status}`);
+      const err = await response.json().catch(function(){ return {}; });
+      throw new Error(err && err.error && err.error.message ? err.error.message : 'HTTP ' + response.status);
     }
 
     const data = await response.json();
-    const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('\n').trim();
+    const text = data && data.candidates && data.candidates[0] && data.candidates[0].content
+      ? data.candidates[0].content.parts.map(function(p){ return p.text || ''; }).join('\n').trim()
+      : '';
     if (!text) throw new Error('Empty response from Gemini Vision.');
 
     hideSkeleton(skelId);
-    resultText.textContent = text;
+    resultText.innerHTML = formatResponse(text);
     timestamp.textContent = 'Generated at ' + new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) + ' · 📷 Image analysed';
-    showToast('✅ Gemini Vision analysis complete!', 'success');
+    showToast('✅ Vision analysis complete!', 'success');
 
   } catch (err) {
     hideSkeleton(skelId);
-    resultText.textContent = '⚠️ Error: ' + err.message;
+    resultText.innerHTML = '<div class="res-warn">⚠️ ' + err.message + '</div>';
     showToast('❌ ' + err.message, 'error');
   } finally {
     btn.disabled = false;
@@ -1755,46 +1589,34 @@ function getConfig(prefix, skelId) {
     btnText:    document.getElementById(prefix + '-btn-text'),
     spinner:    document.getElementById(prefix + '-spinner'),
     resultCard: document.getElementById(prefix + '-result'),
-    skelId,
+    skelId:     skelId,
     resultText: document.getElementById(prefix + '-result-text'),
     timestamp:  document.getElementById(prefix + '-ts')
   };
 }
-function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
 /* ═══════════════════════════════════════════════════════════
-   IMAGE UPLOAD STATE
+   IMAGE UPLOAD
 ═══════════════════════════════════════════════════════════ */
-let _imgBase64 = null;
-let _imgMime   = null;
+var _imgBase64 = null, _imgMime = null;
 
 function handleImageUpload(event) {
-  const file = event.target.files[0];
+  var file = event.target.files[0];
   if (!file) return;
-
-  if (file.size > 5 * 1024 * 1024) {
-    showToast('⚠️ Image too large — please use a photo under 5 MB.', 'error');
-    event.target.value = ''; return;
-  }
-  const allowed = ['image/jpeg','image/png','image/webp','image/gif'];
-  if (!allowed.includes(file.type)) {
-    showToast('⚠️ Use JPG, PNG, or WEBP format.', 'error');
-    event.target.value = ''; return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = e => {
-    const dataUrl = e.target.result;
+  if (file.size > 5 * 1024 * 1024) { showToast('⚠️ Image too large — max 5 MB.', 'error'); event.target.value = ''; return; }
+  var allowed = ['image/jpeg','image/png','image/webp','image/gif'];
+  if (allowed.indexOf(file.type) === -1) { showToast('⚠️ Use JPG, PNG, or WEBP format.', 'error'); event.target.value = ''; return; }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var dataUrl = e.target.result;
     _imgBase64 = dataUrl.split(',')[1];
     _imgMime   = file.type;
-
-    const preview = document.getElementById('d-upload-preview');
+    var preview = document.getElementById('d-upload-preview');
     document.getElementById('d-preview-img').src = dataUrl;
-    document.getElementById('d-filename').textContent = `📎 ${file.name}  (${(file.size/1024).toFixed(0)} KB)`;
+    document.getElementById('d-filename').textContent = '📎 ' + file.name + '  (' + (file.size/1024).toFixed(0) + ' KB)';
     preview.classList.add('has-image');
-
-    const dz = document.getElementById('d-dropzone');
-    dz.style.borderColor = 'var(--leaf)';
+    document.getElementById('d-dropzone').style.borderColor = 'var(--leaf)';
     showToast('📷 Photo ready — Gemini Vision will analyse it!', 'success');
   };
   reader.readAsDataURL(file);
@@ -1805,49 +1627,48 @@ function removeImage() {
   document.getElementById('d-upload-preview').classList.remove('has-image');
   document.getElementById('d-preview-img').src = '';
   document.getElementById('d-image-input').value = '';
-  const dz = document.getElementById('d-dropzone');
-  dz.style.borderColor = '';
+  document.getElementById('d-dropzone').style.borderColor = '';
   showToast('🗑️ Photo removed.', '');
 }
 
-/* Drag-and-drop */
-document.addEventListener('DOMContentLoaded', () => {
-  const dz = document.getElementById('d-dropzone');
+document.addEventListener('DOMContentLoaded', function() {
+  var dz = document.getElementById('d-dropzone');
   if (!dz) return;
-  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('dragover'); });
-  dz.addEventListener('dragleave', ()  => dz.classList.remove('dragover'));
-  dz.addEventListener('drop',      e  => {
+  dz.addEventListener('dragover',  function(e) { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', function()  { dz.classList.remove('dragover'); });
+  dz.addEventListener('drop',      function(e) {
     e.preventDefault(); dz.classList.remove('dragover');
-    const file = e.dataTransfer.files[0];
+    var file = e.dataTransfer.files[0];
     if (file) {
-      const inp = document.getElementById('d-image-input');
-      const dt = new DataTransfer(); dt.items.add(file); inp.files = dt.files;
+      var inp = document.getElementById('d-image-input');
+      var dt = new DataTransfer(); dt.items.add(file); inp.files = dt.files;
       handleImageUpload({ target: inp });
     }
   });
 });
 
 /* ═══════════════════════════════════════════════════════════
-   NAVIGATION
+   NAVIGATION + PAGE PERSISTENCE
 ═══════════════════════════════════════════════════════════ */
-const PAGES = ['home','disease','fertilizer','irrigation','market','subsidy','soil','weather','harvest','organic','about'];
+var PAGES = ['home','disease','fertilizer','irrigation','market','subsidy','soil','weather','harvest','organic','about'];
 
 function showPage(id) {
-  PAGES.forEach(p => {
-    const el = document.getElementById('page-' + p);
+  PAGES.forEach(function(p) {
+    var el = document.getElementById('page-' + p);
     if (el) el.classList.toggle('active', p === id);
   });
-  document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(l => {
-    const fn = l.getAttribute('onclick') || '';
-    l.classList.toggle('active', fn.includes("'" + id + "'"));
+  document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(function(l) {
+    var fn = l.getAttribute('onclick') || '';
+    l.classList.toggle('active', fn.indexOf("'" + id + "'") !== -1);
   });
+  // Save to localStorage so the page survives a reload
+  try { localStorage.setItem('am_page', id); } catch(e) {}
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ─── MOBILE NAV ─── */
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobile-nav');
-const overlay   = document.getElementById('overlay');
+var hamburger = document.getElementById('hamburger');
+var mobileNav = document.getElementById('mobile-nav');
+var overlay   = document.getElementById('overlay');
 
 function openMobileNav() {
   hamburger.classList.add('open'); mobileNav.classList.add('open');
@@ -1859,148 +1680,119 @@ function closeMobileNav() {
   overlay.classList.remove('show'); hamburger.setAttribute('aria-expanded','false');
   document.body.style.overflow = '';
 }
-hamburger.addEventListener('click', () =>
-  mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav());
-window.addEventListener('resize', () => { if (window.innerWidth > 1024) closeMobileNav(); });
+hamburger.addEventListener('click', function() {
+  mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+});
+window.addEventListener('resize', function() { if (window.innerWidth > 1024) closeMobileNav(); });
 
 /* ─── TOAST ─── */
-let toastTimer = null;
-function showToast(msg, type = '') {
-  const t = document.getElementById('toast');
+var toastTimer = null;
+function showToast(msg, type) {
+  if (type === undefined) type = '';
+  var t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'show' + (type ? ' ' + type : '');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { t.className = ''; }, 3500);
+  toastTimer = setTimeout(function() { t.className = ''; }, 3500);
 }
 
 /* ─── SKELETON ─── */
-function showSkeleton(id) { const el=document.getElementById(id); if(el) el.classList.remove('hidden'); }
-function hideSkeleton(id)  { const el=document.getElementById(id); if(el) el.classList.add('hidden'); }
+function showSkeleton(id) { var el = document.getElementById(id); if (el) el.classList.remove('hidden'); }
+function hideSkeleton(id)  { var el = document.getElementById(id); if (el) el.classList.add('hidden'); }
 
 /* ═══════════════════════════════════════════════════════════
-   ANALYSE FUNCTIONS — ALL POWERED BY GEMINI FLASH
+   ANALYSE FUNCTIONS
 ═══════════════════════════════════════════════════════════ */
-
-/* ── DISEASE ── */
 async function analyzeDisease() {
   if (!val('d-crop') || !val('d-symptoms')) return showToast('⚠️ Crop name and symptoms are required!');
-
-  const msg = `Crop Disease Analysis:
-Crop: ${val('d-crop')} | Stage: ${val('d-stage')} | Affected Part: ${val('d-part')}
-Severity: ${val('d-severity')} | First Noticed: ${val('d-when')} | Weather: ${val('d-weather')}
-Location: ${val('d-location')}
-Symptoms: ${val('d-symptoms')}
-
-Provide: 1) Most likely disease(s) with confidence 2) Cause (fungal/bacterial/viral/pest) 3) Severity & spread risk 4) Immediate 24–48hr action 5) Treatment with specific products available in India 6) Organic/low-cost alternatives 7) Prevention for next season`;
-
-  const cfg = getConfig('d', 'd-skel');
-
-  if (_imgBase64 && _imgMime) {
-    await callGeminiVision(msg, _imgBase64, _imgMime, cfg);
-  } else {
-    await callGemini(msg, cfg);
-  }
+  var msg = 'Crop Disease Analysis:\nCrop: ' + val('d-crop') + ' | Stage: ' + val('d-stage') + ' | Affected Part: ' + val('d-part')
+    + '\nSeverity: ' + val('d-severity') + ' | First Noticed: ' + val('d-when') + ' | Weather: ' + val('d-weather')
+    + '\nLocation: ' + val('d-location')
+    + '\nSymptoms: ' + val('d-symptoms')
+    + '\n\nProvide: 1) Most likely disease(s) with confidence 2) Cause (fungal/bacterial/viral/pest) 3) Severity & spread risk 4) Immediate 24–48hr action 5) Treatment with specific products available in India 6) Organic/low-cost alternatives 7) Prevention for next season';
+  var cfg = getConfig('d', 'd-skel');
+  if (_imgBase64 && _imgMime) { await callGeminiVision(msg, _imgBase64, _imgMime, cfg); }
+  else { await callGemini(msg, cfg); }
 }
 
-/* ── FERTILIZER ── */
 async function analyzeFertilizer() {
   if (!val('f-crop')) return showToast('⚠️ Please select a crop!');
-  const msg = `Fertilizer Optimization:
-Crop: ${val('f-crop')} | Area: ${val('f-area')} acres | Soil: ${val('f-soil')} | pH: ${val('f-ph')}
-Nitrogen: ${val('f-nitrogen')} | Previous Crop: ${val('f-prev')} | Irrigation: ${val('f-irrigation')} | Preference: ${val('f-pref')}
-Notes: ${val('f-notes')}
-
-Provide: 1) NPK recommendation (kg/acre) with split doses 2) Fertilizer products (Urea/DAP/MOP) with quantities 3) Application schedule with timing 4) Micronutrient recommendations 5) Organic alternatives 6) Estimated cost 7) Key do's and don'ts`;
+  var msg = 'Fertilizer Optimization:\nCrop: ' + val('f-crop') + ' | Area: ' + val('f-area') + ' acres | Soil: ' + val('f-soil') + ' | pH: ' + val('f-ph')
+    + '\nNitrogen: ' + val('f-nitrogen') + ' | Previous Crop: ' + val('f-prev') + ' | Irrigation: ' + val('f-irrigation') + ' | Preference: ' + val('f-pref')
+    + '\nNotes: ' + val('f-notes')
+    + '\n\nProvide: 1) NPK recommendation (kg/acre) with split doses 2) Fertilizer products (Urea/DAP/MOP) with quantities 3) Application schedule with timing 4) Micronutrient recommendations 5) Organic alternatives 6) Estimated cost 7) Key do\'s and don\'ts';
   await callGemini(msg, getConfig('f', 'f-skel'));
 }
 
-/* ── IRRIGATION ── */
 async function analyzeIrrigation() {
   if (!val('i-crop')) return showToast('⚠️ Please select a crop!');
-  const msg = `Irrigation Planning:
-Crop: ${val('i-crop')} | Stage: ${val('i-stage')} | Soil: ${val('i-soil')} | Season: ${val('i-season')}
-Water Source: ${val('i-source')} | Area: ${val('i-area')} acres
-Issue: ${val('i-issue')}
-
-Provide: 1) Water requirement (mm or L/acre) for current stage 2) Irrigation schedule (frequency & duration) 3) Critical stages requiring irrigation 4) Water-saving recommendations 5) Signs of over/under irrigation 6) Best method for this situation 7) Emergency action if crop shows stress`;
+  var msg = 'Irrigation Planning:\nCrop: ' + val('i-crop') + ' | Stage: ' + val('i-stage') + ' | Soil: ' + val('i-soil') + ' | Season: ' + val('i-season')
+    + '\nWater Source: ' + val('i-source') + ' | Area: ' + val('i-area') + ' acres\nIssue: ' + val('i-issue')
+    + '\n\nProvide: 1) Water requirement (mm or L/acre) 2) Irrigation schedule 3) Critical stages 4) Water-saving recommendations 5) Signs of over/under irrigation 6) Best method 7) Emergency action if crop shows stress';
   await callGemini(msg, getConfig('i', 'i-skel'));
 }
 
-/* ── MARKET ── */
 async function analyzeMarket() {
   if (!val('m-crop')) return showToast('⚠️ Please select a crop!');
-  const msg = `Market Intelligence:
-Crop: ${val('m-crop')} | Qty: ${val('m-qty')} quintals | State: ${val('m-state')} | District: ${val('m-district')}
-Status: ${val('m-status')} | Quality: ${val('m-grade')} | Current Rate: ₹${val('m-rate')}/quintal
-
-Provide: 1) Typical market price range in this state 2) MSP if applicable 3) Best nearby mandis/APMCs 4) Is current rate fair or should farmer wait/negotiate? 5) Price trend outlook for next 4–6 weeks 6) How to improve price (grading/packaging/timing) 7) eNAM or direct selling opportunities 8) Clear recommendation: sell now or wait?`;
+  var msg = 'Market Intelligence:\nCrop: ' + val('m-crop') + ' | Qty: ' + val('m-qty') + ' quintals | State: ' + val('m-state') + ' | District: ' + val('m-district')
+    + '\nStatus: ' + val('m-status') + ' | Quality: ' + val('m-grade') + ' | Current Rate: ₹' + val('m-rate') + '/quintal'
+    + '\n\nProvide: 1) Typical market price range in this state 2) MSP if applicable 3) Best nearby mandis/APMCs 4) Is current rate fair? 5) Price trend outlook (4–6 weeks) 6) How to improve price 7) eNAM or direct selling opportunities 8) Recommendation: sell now or wait?';
   await callGemini(msg, getConfig('m', 'm-skel'));
 }
 
-/* ── SUBSIDY ── */
 async function analyzeSubsidy() {
   if (!val('s-state')) return showToast('⚠️ Please select your state!');
-  const msg = `Government Scheme Finder:
-State: ${val('s-state')} | Farm Size: ${val('s-size')} | Crop: ${val('s-crop')} | Category: ${val('s-category')}
-Aadhar: ${val('s-aadhar')} | Bank Linked: ${val('s-bank')} | Looking For: ${val('s-need')}
-
-Provide: 1) Top 5–7 Central schemes with benefits and how to apply 2) State-specific schemes for ${val('s-state')} 3) KCC eligibility and process 4) PMFBY crop insurance details 5) PM-KISAN eligibility and registration 6) Equipment subsidies if applicable 7) Step-by-step: what to do first, where to go, what documents`;
+  var msg = 'Government Scheme Finder:\nState: ' + val('s-state') + ' | Farm Size: ' + val('s-size') + ' | Crop: ' + val('s-crop') + ' | Category: ' + val('s-category')
+    + '\nAadhar: ' + val('s-aadhar') + ' | Bank Linked: ' + val('s-bank') + ' | Looking For: ' + val('s-need')
+    + '\n\nProvide: 1) Top 5–7 Central schemes with benefits and how to apply 2) State-specific schemes for ' + val('s-state') + ' 3) KCC eligibility and process 4) PMFBY crop insurance details 5) PM-KISAN eligibility 6) Equipment subsidies if applicable 7) Step-by-step: what to do first, where to go, what documents';
   await callGemini(msg, getConfig('s', 's-skel'));
 }
 
-/* ── SOIL ── */
 async function analyzeSoil() {
   if (!val('sl-ph')) return showToast('⚠️ Please enter your soil pH!');
-  const msg = `Soil Health Analysis:
-pH: ${val('sl-ph')} | Type: ${val('sl-type')} | OC: ${val('sl-oc')}% | N: ${val('sl-n')} kg/ha
-P: ${val('sl-p')} kg/ha | K: ${val('sl-k')} kg/ha | EC: ${val('sl-ec')} dS/m | Zinc: ${val('sl-zn')}
-Location & Crop Plan: ${val('sl-info')}
-
-Provide: 1) Overall soil health score & summary 2) Deficiency identification & severity 3) Soil amendments needed (lime/gypsum/OM) with quantities 4) Best suited crops for this soil 5) Fertilizer strategy 6) Steps to improve soil health over 1–2 seasons 7) Red flags or urgent issues`;
+  var msg = 'Soil Health Analysis:\npH: ' + val('sl-ph') + ' | Type: ' + val('sl-type') + ' | OC: ' + val('sl-oc') + '% | N: ' + val('sl-n') + ' kg/ha'
+    + '\nP: ' + val('sl-p') + ' kg/ha | K: ' + val('sl-k') + ' kg/ha | EC: ' + val('sl-ec') + ' dS/m | Zinc: ' + val('sl-zn')
+    + '\nLocation & Crop Plan: ' + val('sl-info')
+    + '\n\nProvide: 1) Overall soil health score & summary 2) Deficiency identification & severity 3) Soil amendments needed with quantities 4) Best suited crops 5) Fertilizer strategy 6) Steps to improve soil health over 1–2 seasons 7) Red flags or urgent issues';
   await callGemini(msg, getConfig('sl', 'sl-skel'));
 }
 
-/* ── WEATHER ── */
 async function analyzeWeather() {
   if (!val('w-state')) return showToast('⚠️ Please select your state!');
-  const msg = `Weather-Based Farm Advisory:
-State: ${val('w-state')} | Season: ${val('w-season')} | Crop: ${val('w-crop')} | Current Weather: ${val('w-current')}
-Concern: ${val('w-concern')}
-
-Provide: 1) Weather impact on current crop 2) Immediate actions for next 3–5 days 3) Irrigation adjustment 4) Disease/pest risk from current weather 5) Harvesting advice 6) Input application timing relative to weather 7) One-week action plan`;
+  var msg = 'Weather-Based Farm Advisory:\nState: ' + val('w-state') + ' | Season: ' + val('w-season') + ' | Crop: ' + val('w-crop') + ' | Current Weather: ' + val('w-current')
+    + '\nConcern: ' + val('w-concern')
+    + '\n\nProvide: 1) Weather impact on current crop 2) Immediate actions for next 3–5 days 3) Irrigation adjustment 4) Disease/pest risk 5) Harvesting advice 6) Input application timing 7) One-week action plan';
   await callGemini(msg, getConfig('w', 'w-skel'));
 }
 
-/* ── HARVEST ── */
 async function analyzeHarvest() {
   if (!val('h-crop')) return showToast('⚠️ Please select a crop!');
-  const msg = `Harvest Planning:
-Crop: ${val('h-crop')} | Sowing: ${val('h-sow')} | Variety: ${val('h-variety')}
-Appearance: ${val('h-appearance')} | Plan: ${val('h-plan')}
-
-Provide: 1) Harvest readiness assessment 2) Visual signs to check for ideal maturity 3) Best harvesting method 4) Optimal time of day to harvest 5) Immediate post-harvest handling 6) Moisture content targets before storage 7) Storage recommendations 8) Expected shelf life and quality tips`;
+  var msg = 'Harvest Planning:\nCrop: ' + val('h-crop') + ' | Sowing: ' + val('h-sow') + ' | Variety: ' + val('h-variety')
+    + '\nAppearance: ' + val('h-appearance') + ' | Plan: ' + val('h-plan')
+    + '\n\nProvide: 1) Harvest readiness assessment 2) Visual signs for ideal maturity 3) Best harvesting method 4) Optimal time of day 5) Post-harvest handling 6) Moisture content targets 7) Storage recommendations 8) Expected shelf life and quality tips';
   await callGemini(msg, getConfig('h', 'h-skel'));
 }
 
-/* ── ORGANIC ── */
 async function analyzeOrganic() {
-  const msg = `Organic Farming Guidance:
-Current Type: ${val('o-current')} | Crop: ${val('o-crop')} | Need: ${val('o-need')}
-Context: ${val('o-context')}
-
-Provide: 1) Step-by-step guidance on the specific need requested 2) Local/low-cost organic inputs and where to source them 3) Common mistakes to avoid 4) Expected timeline and results 5) Financial considerations 6) Government support for organic farming 7) First practical step to take this week`;
+  var msg = 'Organic Farming Guidance:\nCurrent Type: ' + val('o-current') + ' | Crop: ' + val('o-crop') + ' | Need: ' + val('o-need')
+    + '\nContext: ' + val('o-context')
+    + '\n\nProvide: 1) Step-by-step guidance on the specific need 2) Local/low-cost organic inputs and where to source them 3) Common mistakes to avoid 4) Expected timeline and results 5) Financial considerations 6) Government support for organic farming 7) First practical step to take this week';
   await callGemini(msg, getConfig('o', 'o-skel'));
 }
 
 /* ─── KEYBOARD ACCESSIBILITY ─── */
-document.querySelectorAll('[role="button"]').forEach(el => {
-  el.addEventListener('keydown', e => {
+document.querySelectorAll('[role="button"]').forEach(function(el) {
+  el.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
   });
 });
 
-/* ─── INIT ─── */
-showPage('home');
+/* ─── INIT: restore last visited page ─── */
+(function() {
+  var saved = 'home';
+  try { saved = localStorage.getItem('am_page') || 'home'; } catch(e) {}
+  showPage(saved);
+})();
 </script>
 
 </body>
