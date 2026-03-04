@@ -1772,6 +1772,17 @@
         color: #9fddba;
       }
 
+      /* Outline button */
+      .btn-outline {
+        color: #7ed4a0;
+        border-color: #7ed4a0;
+      }
+
+      .btn-outline:hover {
+        background: #7ed4a0;
+        color: var(--cream-dark);
+      }
+
       /* ── 4. Hero gradient-text (leaf → forest ends near-black) ── */
       .hero-title em {
         background: linear-gradient(135deg, var(--gold-light), var(--leaf-light));
@@ -2124,7 +2135,7 @@
           fertilizers, irrigation, market prices, and government subsidies. Free. Always available.</p>
         <div class="btn-row">
           <button class="btn btn-primary" onclick="showPage('disease')">🔬 Diagnose My Crop</button>
-          <button class="btn btn-outline" onclick="showPage('market')">📈 Check Market Price</button>
+          <button class="btn btn-primary" onclick="showPage('market')">📈 Check Market Price</button>
         </div>
       </div>
       <div class="hero-cards" aria-label="Quick access modules">
